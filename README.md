@@ -1,6 +1,9 @@
 <h1>Finally I'm starting it!!!!</h1>
 <h2>100 Days of code</h2>
 
+<h3>My Project Idea</h3>
+<p>In this challenge, I'm gonnna make my own portfolio and blog weebsite. So... first I'm gonna build the frontend and then the backend, or make it side by side.... I couldn't decide it yet...</p>
+
 <u>Day:1</u>
 <p>I got frustrated with my procrastination and my slow progress, and that's when I decided to start the <a href="https://www.100daysofcode.com/">100DaysOfCode</a> challenge.</p>
 <p>In this challenge, I'm gonnna make my own portfolio and blog weebsite. Tune in with me for daily updates!!!!</p>
