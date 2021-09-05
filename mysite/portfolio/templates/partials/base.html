@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicons/favicon.png' %}"/>
+    
+    <!--Font Awesome-->
+    <link href="{% static 'fontawesome_free/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesome_free/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesome_free/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+
+    <!--Bootstrap CDNs-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto text-center">
+            <li class="nav-item active">
+              <a class="nav-link" href="/"><i class="fas fa-home"></i>Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#"><i class="fas fa-blog"></i>Blog</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/contact"><i class="far fa-id-card"></i>Contact</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    {% block body %}
+    {% endblock body %}
+    <!--Footer-->
+    <footer class="page-footer font-small bg-dark text-light">
+      <div class='row text-center'>
+        <ul class="linear-list">
+          <li>
+            <a href="https://www.linkedin.com/in/pratik-c/"><i class="fab fa-2x fa-linkedin-in"></i></a>
+          </li>
+          <li>
+            <a href="https://twitter.com/PratikC85519965"><i class="fab fa-2x fa-twitter"></i></a>
+          </li>
+          <li>
+            <a href="https://github.com/CodeBunny09"><i class="fab fa-2x fa-github"></i></a>
+          </li>
+          <li>
+            <a href="https://discord.gg/Pbw95M2d7S"><i class="fab fa-2x fa-discord"></i></a>
+          </li>
+        </ul>
+      </div>
+      <div class="row text-center">
+        <span>© {% now "Y" %} Copyright: <a href="/">Pratik</a></span>
+      </div>
+    </footer>
+</body>
+</html>
