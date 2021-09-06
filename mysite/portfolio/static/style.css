@@ -1,7 +1,13 @@
+body {
+    background: #FFEDDA;
+}
 .nav-link {
     font-weight: 500;
 }
 
+nav.navbar {
+    background: #3DB2FF;
+}
 .contact .row {
     padding: 1% 0 1% 0;
 }
@@ -34,11 +40,56 @@ ul.linear-list li {
 
 footer {
     padding: 1%;
-    position:absolute;
     bottom:0;
-    width:100%;
+    left: 0;
+    right: 0;
+    background: #FF2442;
+    color: #3DB2FF;
 }
 
 footer li{
     padding: 1%;
+}
+
+footer a{
+    color: #3DB2FF;
+    
+}
+
+footer .copyright {
+    color: black;
+}
+footer .copyright a{
+    color: black;
+}
+/* index.html */
+.about {
+    background: #FFEDDA;
+}
+.description {
+    background: #FFB830;
+    padding: 2%;
+}
+
+.description p {
+    font-size: 200%;
+}
+
+
+.about-header {
+    font-weight: 600;
+    font-size: 250%;
+    font-family: 'Caveat', cursive;
+}
+
+.index-color {
+    color: #112031;
+}
+
+img.circle {
+    border-radius: 50%;
+    margin: 2%;
+}
+.about-description {
+    font-family: 'Caveat', cursive;
 }
