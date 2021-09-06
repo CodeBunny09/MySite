@@ -15,3 +15,7 @@
 <u>Day:3</u>
 <p>I was going lazy today in the beginning, and I tried the 5 minutes trick! I said to myself that I would do this project for 5 minutes, and YAYYYYY!!!! I did it for 1h and 7mins!!! I started making the 'Contacts' page!</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and blog weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:4</u>
+<p>I was really not in a mood today...... Started cuntomizing the homepage. And I was working on another project simultaniously. I feel so overwhelmed now!</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and blog weebsite. Tune in with me for daily updates!!!!</p>
