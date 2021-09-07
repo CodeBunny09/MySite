@@ -1,6 +1,8 @@
 body {
     background: #FFEDDA;
+    font-family: 'Caveat', cursive;
 }
+
 .nav-link {
     font-weight: 500;
 }
@@ -19,19 +21,16 @@ ul.linear-list li {
 .contact-header {
     font-size: 300%;
     font-weight: 500;
-    font-family: 'Caveat', cursive;
 }
 
 .contact-footer {
     font-size: 200%;
     font-weight: 500;
-    font-family: 'Caveat', cursive;
 }
 
 .contact-label {
     font-size: 120%;
     font-weight: 200;
-    font-family: 'Caveat', cursive;
 }
 
 .col-contact {
@@ -79,7 +78,6 @@ footer .copyright a{
 .about-header {
     font-weight: 600;
     font-size: 250%;
-    font-family: 'Caveat', cursive;
 }
 
 .index-color {
@@ -90,6 +88,11 @@ img.circle {
     border-radius: 50%;
     margin: 2%;
 }
-.about-description {
-    font-family: 'Caveat', cursive;
+
+.projects {
+    padding: 2%;
+}
+
+.card {
+    background: #3DB2FF;
 }

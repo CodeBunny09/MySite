@@ -35,4 +35,21 @@
         </div>
     </div>
 </div>
+<div class="container container-fluid projects">
+    <h1>My Projects</h1>
+    <div class="row">
+        {% for project in projects %}
+        <div class="col col-md-3">
+            <div class="card rounded" style="width: 18rem;">
+                <img class="card-img-top" src="{{project.thumbnail.url}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{project.title}}</h5>
+                  <p class="card-text">{{project.description}}</p>
+                  <a href="{{project.link}}" class="btn btn-outline-primary">View Project</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock body %}

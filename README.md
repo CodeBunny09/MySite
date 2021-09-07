@@ -19,3 +19,7 @@
 <u>Day:4</u>
 <p>I was really not in a mood today. Started customizing the homepage. And I was working on another project simultaneously. I feel so overwhelmed now!</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and blog weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:5</u>
+<p>Yayyyy!!! I completed my portfolio and got started with making my blog site!!! It really feels amazing after completing a milestone!! </p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and blog weebsite. Tune in with me for daily updates!!!!</p>
