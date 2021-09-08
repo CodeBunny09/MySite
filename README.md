@@ -23,3 +23,7 @@
 <u>Day:5</u>
 <p>Yayyyy!!! I completed my portfolio and got started with making my blog site!!! It really feels amazing after completing a milestone!! </p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and blog weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:6</u>
+<p>Started learning how to use 'materialize' for designing the frontend, whilw working on the project.... Made a good progress too!!</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and blog weebsite. Tune in with me for daily updates!!!!</p>
