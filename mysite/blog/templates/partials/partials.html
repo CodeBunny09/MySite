@@ -1,13 +1,112 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
+    <!--Font Awesome-->
+    <link href="{% static 'fontawesome_free/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesome_free/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesome_free/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+
+
+    <!--Material CSS CDNs-->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--Custom JS-->
+    <script type="text/javascript" src="{% static 'js/blog/index.js' %}"></script>
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'css/blogs/style.css' %}">
+    
     <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
+    <!--Navbar-->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">Cat 1</a></li>
+        <li><a href="#!">Cat 2</a></li>
+        <li><a href="#!">Cat 3</a></li>
+    </ul>
+    <ul id="dropdown2" class="dropdown-content">
+        <li><a href="#">About Blog</a></li>
+        <li><a href="/about-author">About Author</a></li>
+    </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Treding</a></li>
+                <li><a class="dropdown-trigger" href="#" data-target="dropdown1">Catagories<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-trigger" href="#" data-target="dropdown2">About<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li>    
+                    <div class="center row">
+                       <div class="col s12 " >
+                            <div class="row" id="topbarsearch">
+                                <div class="input-field col s6 s12">
+                                    <i class=" material-icons prefix">search</i>
+                                    <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>          
+                </li>    
+            </ul>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+        <li>    
+            <div class="center row">
+               <div class="col s12 " >
+                    <div class="row" id="topbarsearch">
+                        <div class="input-field col s6 s12">
+                            <i class=" material-icons prefix">search</i>
+                            <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete" >
+                        </div>
+                    </div>
+                </div>
+            </div>          
+        </li>   
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Trending</a></li>
+        <li><a href="#">Catagories</a></li>
+    </ul>
     {% block body %}
     {% endblock body %}
+
+    <!--Footer-->
+    <footer class="page-footer font-small">
+        <div class='row text-center'>
+          <ul class="linear-list right">
+            <li>
+              <a href="https://www.linkedin.com/in/pratik-c/"><i class="fab fa-2x fa-linkedin-in color"></i></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/PratikC85519965"><i class="fab fa-2x fa-twitter"></i></a>
+            </li>
+            <li>
+              <a href="https://github.com/CodeBunny09"><i class="fab fa-2x fa-github"></i></a>
+            </li>
+            <li>
+              <a href="https://discord.gg/Pbw95M2d7S"><i class="fab fa-2x fa-discord"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="row text-center copyright">
+          <span>© {% now "Y" %} Copyright: <a href="/about-author">Pratik</a></span>
+        </div>
+    </footer>
 </body>
 </html>

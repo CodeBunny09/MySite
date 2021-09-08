@@ -1,0 +1,29 @@
+/* Footer */
+footer {
+    position: fixed;
+    padding-left: 1%;
+    padding-right: 1%;
+    bottom:0;
+    left: 0;
+    right: 0;
+    background: #FF2442;
+    color: #3DB2FF;
+}
+
+
+footer a{
+    color: #3DB2FF;
+    
+}
+
+footer .copyright {
+    color: black;
+}
+footer .copyright a{
+    color: black;
+}
+
+ul.linear-list li {
+    display: inline;
+    position: relative;
+}
