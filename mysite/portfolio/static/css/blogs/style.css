@@ -1,6 +1,5 @@
 /* Footer */
 footer {
-    position: fixed;
     padding-left: 1%;
     padding-right: 1%;
     bottom:0;
@@ -8,6 +7,10 @@ footer {
     right: 0;
     background: #FF2442;
     color: #3DB2FF;
+}
+
+footer .foot-row {
+    margin-bottom: 0;
 }
 
 
@@ -26,4 +29,18 @@ footer .copyright a{
 ul.linear-list li {
     display: inline;
     position: relative;
+}
+
+/* Card */
+
+.card-stacked .card-content {
+    padding-top: 0%;
+}
+
+.card-stacked .card-action{
+    padding: 3% 2%;
+}
+
+.card-footer {
+    height: 2%;
 }

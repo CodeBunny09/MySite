@@ -27,3 +27,7 @@
 <u>Day:6</u>
 <p>Started learning how to use 'materialize' for designing the frontend, while working on the project.... Made good progress too!!</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and blog weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:7</u>
+<p>It was a difficult task today, but yea I did it!! I changed my idea from blog to Forum... Yep, I'm gonna make a forum instead of blogs.</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
