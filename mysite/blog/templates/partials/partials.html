@@ -44,11 +44,12 @@
     </ul>
     <nav>
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Silly</a>
+            <div class="container">
+                <a href="/" class="brand-logo">Silly</a>
+            </div>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Treding</a></li>
                 <li><a class="dropdown-trigger" href="#" data-target="dropdown1">Catagories<i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a class="dropdown-trigger" href="#" data-target="dropdown2">About<i class="material-icons right">arrow_drop_down</i></a></li>
                 <li>    
@@ -85,19 +86,13 @@
     </ul>
     <!-- Page Layout here -->
     <div class="row container">
-        <div class="col s12 m8 l10">
+        <div class="col s12 m8 l9">
             {% block body %}
             {% endblock body %}
         </div>
-        <div class="col s12 m8 l2">
+        <div class="col s12 m8 l3">
             {% block sidenav %}
             {% endblock sidenav %}
-            <ul class="collection">
-                <li class="collection-item">Alvin</li>
-                <li class="collection-item">Alvin</li>
-                <li class="collection-item">Alvin</li>
-                <li class="collection-item">Alvin</li>
-            </ul>
         </div>
     </div>
     <!--Footer-->
