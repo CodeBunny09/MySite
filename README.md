@@ -35,3 +35,7 @@
 <u>Day:8</u>
 <p>I spent most of the time designing the wireframe for the posts, and ended up doing copypasting! Next, I made the signup page. It looks really good!!</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:9</u>
+<p>Fuck LIFE! I ran my project! And saw it was broken! Took 2 and a half hour to debug! I'm tired AF.</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
