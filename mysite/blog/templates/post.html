@@ -1,10 +1,83 @@
 {% extends 'partials/partials.html' %}
+{% load static %}
 {% block title %}
 Silly | Post
 {% endblock title %}
-
 {% block body %}
-<h1>Individual Post Page!</h1>
+<div class="container post-container">
+    <div class="row">
+        <ul class="collection">
+            <li class="collection-item avatar">
+              <img src="{% static 'favicons/favicon.png' %}" href="#" alt="" class="circle">
+              <span class="username-header title"><h5>User Name</h5></span>
+              <a href="#" class="secondary-content">Date</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col s2 center-align">
+            <a class="btn-floating waves-effect waves-light red" href="#" name='upvote'>
+                <i class="material-icons medium">
+                    expand_less
+                </i>
+            </a><br>
+            <span>56</span><br>
+            <a class="btn-floating waves-effect waves-light red" href="#" name='downvote'>
+                <i class="material-icons medium">
+                    expand_more
+                </i>
+            </a><br>
+            <span>Views: 45678</span>
+        </div>
+        <div class="col s10">
+            <h1>Hello World!</h1>
+            <p>
+                <ul class="linear-list">
+                    <li>
+                        <div class="chip">
+                            <a href="#">Cat1</a>
+                          </div>
+                    </li>
+                    <li>
+                        <div class="chip">
+                            <a href="#">Cat1</a>
+                          </div>
+                    </li>
+                    <li>
+                        <div class="chip">
+                            <a href="#">Cat1</a>
+                          </div>
+                    </li>
+                    <li>
+                        <div class="chip">
+                            <a href="#">Cat1</a>
+                          </div>
+                    </li>
+                </ul>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <p>
+            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque por.
+        </p>
+    </div>
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <form action="#">
+                    <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Comment...</label>
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Post
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </form>
+    </div>
+</div>
 {% endblock body %}
 {% block sidenav %}
 {% endblock sidenav %}

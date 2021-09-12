@@ -39,3 +39,7 @@
 <u>Day:9</u>
 <p>Fuck LIFE! I ran my project! And saw it was broken! Took 2 and a half hour to debug! I'm tired AF.</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:10</u>
+<p>GTG! I started making the page where all the posts will appear! Made nice progress too!</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>

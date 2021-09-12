@@ -1,6 +1,6 @@
 /* Sign up */
 body {
-    background: whitesmoke;
+    background: url("/static/backgrounds/background.png") 50% 0 no-repeat fixed;
     display: flex;
     justify-content: center;
     align-items: center;

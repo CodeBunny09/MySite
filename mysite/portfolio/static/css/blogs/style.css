@@ -1,3 +1,10 @@
+html {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
 /* Footer */
 footer {
     position: relative;
@@ -44,4 +51,18 @@ ul.linear-list li {
 
 .card-footer {
     height: 2%;
+}
+
+/* Posts */
+
+.linear-list {
+    font-size: medium;
+}
+
+.post-container {
+    width: 100%;
+}
+
+.collection .username-header {
+    font-size: xx-large;
 }
