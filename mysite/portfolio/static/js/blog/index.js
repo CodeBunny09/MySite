@@ -15,10 +15,11 @@ $( document ).ready(function() {
       });
     // Bookmark
     function bookmarked_transition() {
-        $('#bookmark_transition').removeAttr('hidden')
+        sl = $('#bookmark_transition').toggleClass('close');
+        console.log(sl);
         setTimeout(function() {
-        $('#bookmark_transition').attr('hidden', 'true')
-        console.log('Timer working! It\'s 2 seconds!')
+        $('#bookmark_transition').toggleClass('close');
+        console.log('Timer working! It\'s 2 seconds!');
         }, 2000);
     }
     $('#bookmark').on('click', function() {
@@ -34,22 +35,11 @@ $( document ).ready(function() {
         }
     });
     // Share
-    function copyToClipboard(url) {
-        var $temp = $("<input hidden id='url'>");
-        $("body").append($temp);
-        $temp.html(url)
-
-        var text = $("#url").get(0)
-        var selection = window.getSelection();
-        var range = document.createRange();
-        range.selectNodeContents(text);
-        selection.removeAllRanges();
-        selection.addRange(range);
-        //add to clipboard.
-        window.execCommand('copy');
-    }
     $('#share').on('click', function () {
         let url = window.location.href;
-        copyToClipboard(url);
+        share_message = "The url is coppied to your clipboard, you can now share it with your friends!"
+        navigator.clipboard.writeText(url)
+        .then(() => {console.log('Copied'); alert(share_message);})
+        .catch((e) => {console.log(`Copy Failed! ${e}`)})
     });
 });

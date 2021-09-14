@@ -47,3 +47,7 @@
 <u>Day:11</u>
 <p>Added some frontend functionalities, and need to add many more!!</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:12</u>
+<p>I was struggling with the CSS animations, thanks to StackOverflow, I could do most of it!! I know it sounds like a noob!</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
