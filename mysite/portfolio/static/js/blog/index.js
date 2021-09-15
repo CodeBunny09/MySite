@@ -1,8 +1,9 @@
 $( document ).ready(function() {
-    //Generic
+    //Misc
     $(".dropdown-trigger").dropdown({hover: true});
     $('.sidenav').sidenav();
     $('select').formSelect();
+    $('.tooltipped').tooltip();
     
     // SignUp
     $('#password, #confirm_password').on('keyup', function () {
@@ -14,32 +15,28 @@ $( document ).ready(function() {
         }
       });
     // Bookmark
-    function bookmarked_transition() {
-        sl = $('#bookmark_transition').toggleClass('close');
-        console.log(sl);
-        setTimeout(function() {
-        $('#bookmark_transition').toggleClass('close');
-        console.log('Timer working! It\'s 2 seconds!');
-        }, 2000);
-    }
     $('#bookmark').on('click', function() {
         if ($('#bookmark-icon').html() == 'bookmark_border') {
             $('#bookmark-icon').html('bookmark');
-            $('#bookmark_transition').html('<h4>Bookmark Added!</h4>');
-            bookmarked_transition();
+            $('#bookmark').attr('data-tooltip', "Remove Bookmark.");
+            $('#bookmark').attr('onclick', "M.toast({html: 'Bookmark Removed!', classes: 'rounded'})");
+
         }
         else if ($('#bookmark-icon').html() == 'bookmark') {
             $('#bookmark-icon').html('bookmark_border');
-            $('#bookmark_transition').html('<h4>Bookmark Removed!</h4>');
-            bookmarked_transition();
+            $('#bookmark').attr('data-tooltip', "Bookmark this post!!");
+            $('#bookmark').attr('onclick', "M.toast({html: 'Bookmark Added!', classes: 'rounded'})");
+
+
         }
     });
     // Share
     $('#share').on('click', function () {
         let url = window.location.href;
-        share_message = "The url is coppied to your clipboard, you can now share it with your friends!"
+        let share_message = "The url is coppied to your clipboard, you can now share it with your friends!"
+        
         navigator.clipboard.writeText(url)
-        .then(() => {console.log('Copied'); alert(share_message);})
-        .catch((e) => {console.log(`Copy Failed! ${e}`)})
+        .then(() => {M.toast({html: share_message, classes: 'rounded'});})
+        .catch((e) => {console.log(`Copy Failed! ${e}`);})
     });
 });

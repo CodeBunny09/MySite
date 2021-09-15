@@ -30,10 +30,10 @@ Silly | Post
                 </i>
             </a><br>
             <span>Views: 45678</span>
-            <a class="btn-floating white waves-effect waves-light"><i id="share" class="material-icons small red-text">share</i></a>
+            <a class="btn-floating white waves-effect waves-light"><i id="share" class="material-icons small red-text tooltipped" data-position="right" data-tooltip="Share">share</i></a>
         </div>
         <div class="col s10">
-            <a id="bookmark" class="secondary-content"><i id="bookmark-icon" class="material-icons medium red-text">bookmark_border</i></a>
+            <a id="bookmark" onclick="M.toast({html: 'Bookmark Added!', classes: 'rounded'})" class="secondary-content tooltipped" data-position="left" data-tooltip="Bookmark This Post!"><i id="bookmark-icon" class="material-icons medium red-text">bookmark_border</i></a>
             <h1>Hello World!</h1>
             <p>
                 <ul class="linear-list">
@@ -66,9 +66,6 @@ Silly | Post
         <p>
             "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque por.
         </p>
-    </div>
-    <div class="row slider close" id="bookmark_transition">
-        <h4>Bookmark added!!</h4>
     </div>
     <!-- Comment Post -->
     <div class="row">
@@ -118,7 +115,7 @@ Silly | Post
             <p>Comment date <br>
                Lorem Ipsum Dolor Amet.
             </p>
-            <div class="col s2 right" style="position: absolute; top:10%; right:0;">
+            <div class="col s2 right" style="position: absolute; top:10%; right:6%;">
                 <i class="material-icons small red-text waves-effect">sentiment_very_satisfied</i>
             </div>
         </li>
@@ -242,4 +239,28 @@ Silly | Post
 </div>
 {% endblock body %}
 {% block sidenav %}
+<!-- Sidenav -->
+<li href="#" class="waves-effect collection-item"><h5>Trending</h5></li>
+<ul class="collection">
+    <li href="#" class="collection-item">Post Title 1</li>
+    <li href="#" class="collection-item">Post Title 2</li>
+    <li href="#" class="collection-item">Post Title 3</li>
+    <li href="#" class="collection-item">Post Title 4</li>
+    <li href="#" class="collection-item">Post Title 5</li>
+</ul>
+<li href="#" class="waves-effect collection-item"><h5>Recents</h5></li>
+<ul class="collection">
+    <li href="#" class="collection-item">Post Title 1</li>
+    <li href="#" class="collection-item">Post Title 2</li>
+    <li href="#" class="collection-item">Post Title 3</li>
+    <li href="#" class="collection-item">Post Title 4</li>
+    <li href="#" class="collection-item">Post Title 5</li>
+</ul>
+<li href="#" class="waves-effect collection-item"><h5>Catagories</h5></li>
+<ul class="collection">
+    <li href="#" class="waves-effect collection-item">Cat 1</li>
+    <li href="#" class="waves-effect collection-item">Cat 2</li>
+    <li href="#" class="waves-effect collection-item">Cat 3</li>
+    <li href="#" class="waves-effect collection-item">Cat 4</li>
+</ul>
 {% endblock sidenav %}

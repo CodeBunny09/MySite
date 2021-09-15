@@ -12,3 +12,12 @@ def login(req):
 
 def signup(req):
     return render(req, 'signup.html')
+
+def dasboard(req):
+    return render(req, 'dashboard.html')
+
+def profile(req):
+    return render(req, 'profile.html')
+
+def profile_pub(req):
+    return render(req, 'profile-pub.html')
