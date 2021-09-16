@@ -4,6 +4,7 @@ $( document ).ready(function() {
     $('.sidenav').sidenav();
     $('select').formSelect();
     $('.tooltipped').tooltip();
+    $('.materialboxed').materialbox();
     
     // SignUp
     $('#password, #confirm_password').on('keyup', function () {

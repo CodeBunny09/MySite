@@ -55,3 +55,7 @@
 <u>Day:13</u>
 <p>I went fucking crazy when I knew that animations were one-liners using materialize, and realized I wasted my previous day animating stuff in my webpage!</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:14</u>
+<p>It was my birthday today, so I started working on the project late, but still, I didn't break my streak! Today was really an amazing day for me!</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>

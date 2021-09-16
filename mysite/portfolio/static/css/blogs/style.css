@@ -102,3 +102,19 @@ ul.linear-list li {
     border-width: thin;
     border-style: inherit;
 }
+
+/* Profile */
+.username {
+    font-weight: 700;
+    font-size: larger;
+
+}
+
+.points-name {
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.points-value {
+    font-size: x-large;
+}
