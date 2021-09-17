@@ -3,6 +3,7 @@ html {
     bottom: 0;
     right: 0;
     left: 0;
+    scroll-behavior: smooth;
 }
 
 /* Footer */

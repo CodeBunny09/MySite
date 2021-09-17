@@ -59,3 +59,7 @@
 <u>Day:14</u>
 <p>It was my birthday today, so I started working on the project late, but still, I didn't break my streak! Today was really an amazing day for me!</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:15</u>
+<p>I think I should design my frontend using a CMS, BTW did pretty good work today!</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>

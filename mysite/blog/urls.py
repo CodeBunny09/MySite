@@ -9,4 +9,5 @@ urlpatterns = [
     path('dashboard/', views.dasboard, name='blog-dashboard'),
     path('profile/', views.profile, name='blog-private-profile'),
     path('profile-pub/', views.profile_pub, name='blog-public-profile'),
+    path('network-stats/', views.network_stats, name='blog-net-stats'),
 ]

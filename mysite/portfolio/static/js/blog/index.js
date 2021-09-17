@@ -5,6 +5,10 @@ $( document ).ready(function() {
     $('select').formSelect();
     $('.tooltipped').tooltip();
     $('.materialboxed').materialbox();
+    $('.scrollspy').scrollSpy();
+    $('.tabs').tabs();
+    
+
     
     // SignUp
     $('#password, #confirm_password').on('keyup', function () {

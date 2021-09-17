@@ -21,3 +21,6 @@ def profile(req):
 
 def profile_pub(req):
     return render(req, 'profile-pub.html')
+
+def network_stats(req):
+    return render(req, 'network-stats.html')
