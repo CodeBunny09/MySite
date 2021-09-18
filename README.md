@@ -63,3 +63,11 @@
 <u>Day:15</u>
 <p>I think I should design my frontend using a CMS, BTW did pretty good work today!</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:16</u>
+<p>Nothing much today. Just got started with Django cms, planning to migrate this site to Django cms and re-build it.</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:17</u>
+<p>Back to Django, I'll work on Django cms later! First I need to finish setting up the site in Django, then I'll migrate it.</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>

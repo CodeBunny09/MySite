@@ -22,18 +22,74 @@
     <!--Custom CSS-->
     <link rel="stylesheet" href="{% static 'css/blogs/style.css' %}">
     
-    <title>{% block title %}{% endblock title %}</title>
+    <title>{% block title %}Network Stats{% endblock title %}</title>
 </head>
 <body>
     <div class="container">
-        <ul id="tabs-swipe-demo" class="tabs">
-            <li class="tab col s3"><a href="#test-swipe-1">Test 1</a></li>
-            <li class="tab col s3"><a class="active" href="#test-swipe-2">Test 2</a></li>
-            <li class="tab col s3"><a href="#test-swipe-3">Test 3</a></li>
+        <ul class="tabs row">
+            <li class="tab col s6"><a href="#followers">Followers</a></li>
+            <li class="tab col s6"><a href="#followings">Following</a></li>
         </ul>
-        <div id="test-swipe-1" class="col s12 blue">Test 1</div>
-        <div id="test-swipe-2" class="col s12 red">Test 2</div>
-        <div id="test-swipe-3" class="col s12 green">Test 3</div>
+        <div class="row">
+        <div id="followers" class="container col s12">
+            <ul class="collection">
+                <li class="collection-item avatar">
+                    <img src="" alt="" class="circle">
+                    <span class="title">Darlene</span>
+                    <a href="#" class="secondary-content waves-effect waves-light btn">Follow Back</a>
+                </li>
+                <li class="collection-item avatar">
+                    <img src="" alt="" class="circle">
+                    <span class="title">Elliot</span>
+                    <a href="#" class="secondary-content waves-effect waves-light btn">Follow Back</a>
+                </li>
+                <li class="collection-item avatar">
+                    <img src="" alt="" class="circle">
+                    <span class="title">Sheyla</span>
+                    <a href="#" class="secondary-content waves-effect waves-light btn">Follow Back</a>
+                </li>
+                <li class="collection-item avatar">
+                    <img src="" alt="" class="circle">
+                    <span class="title">Whiterose</span>
+                    <a href="#" class="secondary-content waves-effect waves-light btn">Follow Back</a>
+                </li>
+                <li class="collection-item avatar">
+                    <img src="" alt="" class="circle">
+                    <span class="title">Dom</span>
+                    <a href="#" class="secondary-content waves-effect waves-light btn">Follow Back</a>
+                </li>
+            </ul>
+        </div>
+        <div id="followings" class="container col s12">
+            <ul class="collection">
+                <li class="collection-item avatar">
+                    <img src="" alt="" class="circle">
+                    <span class="title">Phillip</span>
+                    <a href="#" class="secondary-content waves-effect waves-light btn">Unfollow</a>
+                </li>
+                <li class="collection-item avatar">
+                    <img src="" alt="" class="circle">
+                    <span class="title">Tyrell</span>
+                    <a href="#" class="secondary-content waves-effect waves-light btn">Unfollow</a>
+                </li>
+                <li class="collection-item avatar">
+                    <img src="" alt="" class="circle">
+                    <span class="title">Sheyla</span>
+                    <a href="#" class="secondary-content waves-effect waves-light btn">Unfollow</a>
+                </li>
+                <li class="collection-item avatar">
+                    <img src="" alt="" class="circle">
+                    <span class="title">Elliot</span>
+                    <a href="#" class="secondary-content waves-effect waves-light btn">Unfollow</a>
+                </li>
+                <li class="collection-item avatar">
+                    <img src="" alt="" class="circle">
+                    <span class="title">Rohit</span>
+                    <a href="#" class="secondary-content waves-effect waves-light btn">Unfollow</a>
+                </li>
+            </ul>
+        </div>
+        </div>
     </div>
 </body>
 </html>
