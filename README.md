@@ -71,3 +71,7 @@
 <u>Day:17</u>
 <p>Back to Django, I'll work on Django cms later! First I need to finish setting up the site in Django, then I'll migrate it.</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:18</u>
+<p>Designed the profile settings page. Going to finish the frontend and get started on the backend soon!</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>

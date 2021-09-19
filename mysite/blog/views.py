@@ -13,9 +13,6 @@ def login(req):
 def signup(req):
     return render(req, 'signup.html')
 
-def dasboard(req):
-    return render(req, 'dashboard.html')
-
 def profile(req):
     return render(req, 'profile.html')
 
@@ -24,3 +21,7 @@ def profile_pub(req):
 
 def network_stats(req):
     return render(req, 'network-stats.html')
+
+
+def query(req):
+    return render(req, 'query.html')
