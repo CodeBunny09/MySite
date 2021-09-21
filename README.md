@@ -75,3 +75,7 @@
 <u>Day:18</u>
 <p>Designed the profile settings page. Going to finish the frontend and get started on the backend soon!</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:19</u>
+<p>Woohoooo!!! I finished the frontend and got started with the backend today!!</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
