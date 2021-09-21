@@ -7,7 +7,8 @@
             <span class="contact-header">Send me a message</span>
         </div>
         <div class="col col-md-9">
-            <form action="mailto:pratikchoudhuri1609@gmail.com" method='post' enctype="text/plain">
+            <form method='POST' enctype="multipart/form-data">
+                {% csrf_token %}
                 <div class="form-group">
                     <div class="row">
                         <div class="col col-contact">
@@ -19,10 +20,10 @@
                             <input type="email" id="email" name="email" class="form-control" placeholder="username@domain.com" required>
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
-                        <label class="contact-label" for="Title">Title</label>
-                        <input class="form-control" name="title" type="text" id="Title" placeholder="Title">
-                        <label class="contact-label" for="message">Message</label>
-                        <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Your Message..."></textarea>
+                        <label class="contact-label" for="subject">Subject</label>
+                        <input class="form-control" name="subject" type="text" id="Title" placeholder="Title">
+                        <label class="contact-label" for="message">Message*</label>
+                        <textarea class="form-control" name="message" id="message" cols="30" rows="10" required placeholder="Your Message..."></textarea>
                       </div>
                 </div>
                 <button type='submit' class="btn btn-lg btn-outline-primary">

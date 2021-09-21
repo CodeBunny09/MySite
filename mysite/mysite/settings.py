@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'jquery',
     'portfolio',
-    'blog'
+    'blog',
+    'import_export'
 ]
 
 MIDDLEWARE = [

@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from portfolio.models import Project, Me, Hobbies
+from portfolio.models import Project, Me, Hobbies, Contact
+from portfolio.forms import ContactForm
 
 # Create your views here.
 def index(req):
@@ -14,4 +15,8 @@ def index(req):
     return render(req, 'index.html', context)
 
 def contact(req):
-    return render(req, 'contact.html')
+    form = ContactForm(req.POST)
+    if req.method == 'POST':
+        print(form.data)
+        form.save()
+    return render(req, 'contact.html', {'form': form})
