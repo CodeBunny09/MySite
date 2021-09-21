@@ -24,4 +24,4 @@ def network_stats(req):
 
 
 def query(req):
-    return render(req, 'query.html')
+    return render(req, 'post-query.html')

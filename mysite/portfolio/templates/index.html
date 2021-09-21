@@ -6,33 +6,28 @@
     <div class="row">
         <div class="col col-md-8">
             <div class="container container-fluid">
-                <span class="about-header">Hello <br>I am Pratik,</span>
-                <p>People call me CRAZY sometimes!!</p>
+                <span class="about-header">Hello <br>I am {{me.0.name}},</span>
+                <p>{{me.0.subtitle}}</p>
             </div>
             <div class="container about-description">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p>{{me.0.description}}</p>
             </div>
         </div>
         <div class="col col-md-4">
-            <img class="img img-fluid circle" src="{% static 'images/pratik.jpg' %}" alt="pratik">
+            <img class="img img-fluid rounded float-right circle" src="{{me.0.pfp.url}}" alt="pratik">
         </div>
     </div>
 </div>
 <div class="container description container-fluid index-color text-center">
-    <h1>What I Do....</h1>
+    <h1>My Hobbies....</h1>
     <div class="row">
+        {% for hobby in hobbies %}
         <div class="col col-md-4">
-            <a href="#"><i class="fas fa-code fa-4x"></i></a>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+            <a href="#"><i class="fas {{hobby.icon}} fa-4x"></i></a>
+            <h3>{{hobby.title}}</h3>
+            <p>{{hobby.description}}</p>
         </div>
-        <div class="col col-md-4">
-            <a href="#"><i class="fas fa-music fa-4x"></i></a>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-        </div>
-        <div class="col col-md-4">
-            <a href="#"><i class="fas fa-blog fa-4x"></i></a>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-        </div>
+        {% endfor %}
     </div>
 </div>
 <div class="container container-fluid projects">
