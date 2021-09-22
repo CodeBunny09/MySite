@@ -1,11 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from blog.models import Author, Catagory, Post
+from .utils import update_views
 # Create your views here.
 
 def index(req):
     return render(req, 'home.html')
 
-def post(req):
-    return render(req, 'post.html')
+def post(req, slug):
+    post = get_object_or_404(Post, slug=slug)
+    context = {
+        'post': post
+    }
+    update_views(req, post)
+    return render(req, 'post.html', context)
 
 def login(req):
     return render(req, 'login.html')

@@ -22,7 +22,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('about-author/', include(('portfolio.urls', 'portfolio'), namespace='portfolio')),
-    path('', include(('blog.urls', 'blog'), namespace='blog'))
+    path('', include(('blog.urls', 'blog'), namespace='blog')),
+    path('tinymce/', include('tinymce.urls')),
+    path(r'hitcount/', include('hitcount.urls', namespace='hitcount')),
 ]
 
 if settings.DEBUG:
