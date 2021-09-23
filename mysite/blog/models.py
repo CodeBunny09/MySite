@@ -8,6 +8,7 @@ from django_resized import ResizedImageField
 from tinymce.models import HTMLField
 from hitcount.models import HitCountMixin, HitCount
 from taggit.managers import TaggableManager
+from django.shortcuts import reverse
 
 
 
@@ -47,20 +48,48 @@ class Catagory(models.Model):
 
     def __str__(self):
         return self.title
+    @property
+    def num_posts(self):
+        return Post.objects.filter(catagory=self).count()
 
+    @property
+    def last_post(self):
+        return Post.objects.filter(catagory=self).latest("date")
+
+class Reply(models.Model):
+    user = models.ForeignKey(Author, on_delete=models.CASCADE)
+    content = models.CharField(max_length=100, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.content[:50]
+
+
+class Comment(models.Model):
+    user = models.ForeignKey(Author, on_delete=models.CASCADE)
+    content = models.CharField(max_length=100, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+    replies = models.ManyToManyField(Reply, blank=True)
+
+    class Meta:
+        verbose_name_plural = 'Replies'
+
+    def __str__(self):
+        return self.content[:50]
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=400)
-    slug = models.SlugField(max_length=400, unique=True, blank=True)
+    title = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100, unique=True, blank=True)
     user = models.ForeignKey(Author, on_delete=models.CASCADE)
-    content = HTMLField()
+    content = HTMLField(max_length=500)
     catagory = models.ManyToManyField(Catagory)
     date = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
     hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk', related_query_name='hit_count_generic_relation')
     points = models.IntegerField(default=0)
     tags = TaggableManager()
+    comments = models.ManyToManyField(Comment, blank=True)
 
 
     def save(self, *args, **kwargs):
@@ -70,3 +99,8 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_url(self):
+        return reverse("blog:blog-post", kwargs={
+            "slug": self.slug
+        })

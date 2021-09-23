@@ -4,7 +4,12 @@ from .utils import update_views
 # Create your views here.
 
 def index(req):
-    return render(req, 'home.html')
+    posts = Post.objects.all()
+    context = {
+        'posts': posts
+    }
+
+    return render(req, 'home.html', context=context)
 
 def post(req, slug):
     post = get_object_or_404(Post, slug=slug)
@@ -13,6 +18,9 @@ def post(req, slug):
     }
     update_views(req, post)
     return render(req, 'post.html', context)
+
+def make_post(req):
+    return render(req, 'create.html')
 
 def login(req):
     return render(req, 'login.html')

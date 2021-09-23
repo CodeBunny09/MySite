@@ -87,3 +87,7 @@
 <u>Day:21</u>
 <p>Did a lotta work today, almost finished designing the basic backend models.</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:22</u>
+<p>Built backend for Comment and Reply system. It's going good!!</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>

@@ -6,7 +6,8 @@ $( document ).ready(function() {
     $('.tooltipped').tooltip();
     $('.materialboxed').materialbox();
     $('.scrollspy').scrollSpy();
-    $('.tabs').tabs({ 'swipeable': true });    
+    $('.tabs').tabs({ 'swipeable': true });
+    $('input#title, textarea#content').characterCounter();    
 
     
     // SignUp

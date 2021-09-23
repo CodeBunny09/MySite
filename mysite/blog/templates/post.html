@@ -2,7 +2,7 @@
 {% load static %}
 {% load hitcount_tags %}
 {% block title %}
-Silly | Post
+Silly | {{post.title}}
 {% endblock title %}
 {% block body %}
 <div class="container post-container">
@@ -10,7 +10,7 @@ Silly | Post
     <div class="row">
         <ul class="collection">
             <li class="collection-item avatar">
-              <img src="{{post.user.profile_pic.url}}" href="#" alt="" class="circle">
+              <img src="{{post.user.profile_pic.url}}" alt="{{post.user.fullname}}" class="circle">
               <span class="username-header title"><h5>{{post.user.fullname | title}}</h5></span>
               <a href="#" class="secondary-content">{{post.date}}</a>
             </li>

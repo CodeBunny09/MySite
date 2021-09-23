@@ -1,0 +1,84 @@
+{% extends 'partials/partials.html' %}
+{% load static %}
+{% load hitcount_tags %}
+{% block title %}
+Silly | Post
+{% endblock title %}
+{% block body %}
+<h1>Create a post</h1>
+<form action="">
+    <div class="row"> <!--Title-->
+        <div class="input-field col s6">
+            <input id="title" type="text" data-length="100">
+            <label for="title"><b>Title</b></label>
+        </div>
+    </div>
+    <div class="row"> <!--Content-->
+        <div class="input-field col s12">
+            <textarea id="content" class="materialize-textarea" data-length="500"></textarea>
+            <label for="content">Content</label>
+        </div>
+    </div>
+    <div class="row"> <!--Catagories-->
+        <div class="col s3">
+            <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Catagories</a>
+        
+            <ul id='dropdown1' class='dropdown-content'>
+              <li><a href="#!">Cat 1</a></li>
+              <li><a href="#!">Cat 2</a></li>
+              <li><a href="#!">Cat 3</a></li>
+            </ul>
+        </div>
+        <div class="col s9">
+            <p>
+                <ul class="linear-list">
+                    <li>
+                        <div class="chip">
+                            <a href="#">Cat 1</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="chip">
+                            <a href="#">Cat 2</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="chip">
+                            <a href="#">Cat 3</a>
+                        </div>
+                    </li>
+                </ul>
+            </p>
+        </div>
+    </div>
+    <button class="btn waves-effect waves-light red" type="submit" name="action">Post
+        <i class="material-icons right">send</i>
+    </button>
+</form>
+{% endblock body %}
+{% block sidenav %}
+<!-- Sidenav -->
+<li href="#" class="waves-effect collection-item"><h5>Trending</h5></li>
+<ul class="collection">
+    <li href="#" class="collection-item">Post Title 1</li>
+    <li href="#" class="collection-item">Post Title 2</li>
+    <li href="#" class="collection-item">Post Title 3</li>
+    <li href="#" class="collection-item">Post Title 4</li>
+    <li href="#" class="collection-item">Post Title 5</li>
+</ul>
+<li href="#" class="waves-effect collection-item"><h5>Recents</h5></li>
+<ul class="collection">
+    <li href="#" class="collection-item">Post Title 1</li>
+    <li href="#" class="collection-item">Post Title 2</li>
+    <li href="#" class="collection-item">Post Title 3</li>
+    <li href="#" class="collection-item">Post Title 4</li>
+    <li href="#" class="collection-item">Post Title 5</li>
+</ul>
+<li href="#" class="waves-effect collection-item"><h5>Catagories</h5></li>
+<ul class="collection">
+    <li href="#" class="waves-effect collection-item">Cat 1</li>
+    <li href="#" class="waves-effect collection-item">Cat 2</li>
+    <li href="#" class="waves-effect collection-item">Cat 3</li>
+    <li href="#" class="waves-effect collection-item">Cat 4</li>
+</ul>
+{% endblock sidenav %}
