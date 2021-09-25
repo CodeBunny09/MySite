@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!--Font Awesome-->
+    <link href="{% static 'fontawesome_free/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesome_free/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesome_free/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+    <!--Material CSS CDNs-->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <!--Custom JS-->
+    <script type="text/javascript" src="{% static 'js/blog/index.js' %}"></script>
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="{% static 'css/blogs/users/style.css' %}">
+    <title>Silly | {{title}}</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <form method="POST" action="." class="col s12" id="reg-form">
+        {% csrf_token %}
+        {{form.as_table}}
+        <!-- <div class="row">
+          <div class="input-field col s12">
+            <label for="username">Username</label>
+            {{form.username}}
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="input-field col s12">
+            <label for="password1">Password</label>
+            {{form.password1}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="password2">Confirm Password</label>
+            {{form.password2}}
+            <span id="message"></span>
+          </div>
+        </div> -->
+        <div class="input-field col s6">
+          <button class="btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Register
+            <i class="material-icons right">done</i>
+          </button>
+        </div>
+      </form>
+    </div>
+    <a href="/login" title="Login" class="ngl btn-floating btn-large waves-effect waves-light red"><i class="material-icons">input</i></a>
+  </div>  
+</body>
+</html>

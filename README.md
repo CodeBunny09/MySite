@@ -96,3 +96,7 @@
 <u>Day:23</u>
 <p>Tried to build the user model-form but it fucked up! I had to revert all the changes... Ugh. Thanks to git.</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:24</u>
+<p>Created signup form!!!!! Woo!!!! It works!!!!!!! Yesterday was a mess but I learned from that.</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>

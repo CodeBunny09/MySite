@@ -12,7 +12,7 @@ Silly | {{post.title}}
             <li class="collection-item avatar">
               <img src="{{post.user.profile_pic.url}}" alt="{{post.user.fullname}}" class="circle">
               <span class="username-header title"><h5>{{post.user.fullname | title}}</h5></span>
-              <a href="#" class="secondary-content">{{post.date}}</a>
+              <a href="#" class="secondary-content">{{post.date | date}}</a>
             </li>
         </ul>
     </div>
@@ -69,13 +69,14 @@ Silly | {{post.title}}
             </div>
         </form>
     </div>
+    {% for comment in post.comments.all %}
     <!-- Comments -->
     <ul class="collection">
         <li class="collection-item avatar">
-            <img src="{% static 'favicons/favicon.png' %}" alt="" class="circle">
-            <span class="title">Usre Name</span>
-            <p>Comment date <br>
-               Lorem Ipsum Dolor Amet.
+            <img src="{{comment.user.profile_pic.url}}" alt="{{comment.user.fullname | title}}" class="circle">
+            <span class="title">{{comment.user.fullname | title}}</span>
+            <p>{{comment.date | date}} <br>
+               {{comment.content}}
             </p>
             <div class="row comment-controls">
                 <ul class="collection no-border">
@@ -95,253 +96,23 @@ Silly | {{post.title}}
             </div>
         </li>
         <!-- Reply -->
+        {% for reply in comment.replies.all %}
         <li class="collection-item avatar reply">
-            <img src="{% static 'favicons/favicon.png' %}" alt="" class="circle">
-            <span class="title">Usre Name</span>
-            <p>Comment date <br>
-               Lorem Ipsum Dolor Amet.
+            <img src="{{reply.user.profile_pic.url}}" alt="{{reply.user.fullname | title}}" class="circle">
+            <span class="title">{{ reply.user.fullname | title }}</span>
+            <p>{{ reply.date | date }}<br>
+               {{ reply.content }}
             </p>
             <div class="col s2 right" style="position: absolute; top:10%; right:6%;">
                 <i class="material-icons small red-text waves-effect">sentiment_very_satisfied</i>
             </div>
         </li>
+        {% endfor %}
         <!-- Reply End -->
     </ul>
     <!-- Comment End -->
     <!-- Comments -->
-    <ul class="collection">
-        <li class="collection-item avatar">
-            <img src="{% static 'favicons/favicon.png' %}" alt="" class="circle">
-            <span class="title">Usre Name</span>
-            <p>Comment date <br>
-               Lorem Ipsum Dolor Amet.
-            </p>
-            <div class="row comment-controls">
-                <ul class="collection no-border">
-                    <li  class="waves-effect collection-item">
-                        <i class="material-icons small red-text">sentiment_very_satisfied</i>
-                    </li>
-                    <li  class="waves-effect collection-item">
-                        <div class="input-field no-border">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Reply...</label>
-                            <button class="btn waves-effect waves-light red" type="submit" name="action">Send
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <!-- Reply -->
-        <li class="collection-item avatar reply">
-            <img src="{% static 'favicons/favicon.png' %}" alt="" class="circle">
-            <span class="title">Usre Name</span>
-            <p>Comment date <br>
-               Lorem Ipsum Dolor Amet.
-            </p>
-            <div class="col s2 right" style="position: absolute; top:10%; right:6%;">
-                <i class="material-icons small red-text waves-effect">sentiment_very_satisfied</i>
-            </div>
-        </li>
-        <!-- Reply End -->
-    </ul>
-    <!-- Comment End -->
-    <!-- Comments -->
-    <ul class="collection">
-        <li class="collection-item avatar">
-            <img src="{% static 'favicons/favicon.png' %}" alt="" class="circle">
-            <span class="title">Usre Name</span>
-            <p>Comment date <br>
-               Lorem Ipsum Dolor Amet.
-            </p>
-            <div class="row comment-controls">
-                <ul class="collection no-border">
-                    <li  class="waves-effect collection-item">
-                        <i class="material-icons small red-text">sentiment_very_satisfied</i>
-                    </li>
-                    <li  class="waves-effect collection-item">
-                        <div class="input-field no-border">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Reply...</label>
-                            <button class="btn waves-effect waves-light red" type="submit" name="action">Send
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <!-- Reply -->
-        <li class="collection-item avatar reply">
-            <img src="{% static 'favicons/favicon.png' %}" alt="" class="circle">
-            <span class="title">Usre Name</span>
-            <p>Comment date <br>
-               Lorem Ipsum Dolor Amet.
-            </p>
-            <div class="col s2 right" style="position: absolute; top:10%; right:6%;">
-                <i class="material-icons small red-text waves-effect">sentiment_very_satisfied</i>
-            </div>
-        </li>
-        <!-- Reply End -->
-    </ul>
-    <!-- Comment End -->
-    <!-- Comments -->
-    <ul class="collection">
-        <li class="collection-item avatar">
-            <img src="{% static 'favicons/favicon.png' %}" alt="" class="circle">
-            <span class="title">Usre Name</span>
-            <p>Comment date <br>
-               Lorem Ipsum Dolor Amet.
-            </p>
-            <div class="row comment-controls">
-                <ul class="collection no-border">
-                    <li  class="waves-effect collection-item">
-                        <i class="material-icons small red-text">sentiment_very_satisfied</i>
-                    </li>
-                    <li  class="waves-effect collection-item">
-                        <div class="input-field no-border">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Reply...</label>
-                            <button class="btn waves-effect waves-light red" type="submit" name="action">Send
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <!-- Reply -->
-        <li class="collection-item avatar reply">
-            <img src="{% static 'favicons/favicon.png' %}" alt="" class="circle">
-            <span class="title">Usre Name</span>
-            <p>Comment date <br>
-               Lorem Ipsum Dolor Amet.
-            </p>
-            <div class="col s2 right" style="position: absolute; top:10%; right:6%;">
-                <i class="material-icons small red-text waves-effect">sentiment_very_satisfied</i>
-            </div>
-        </li>
-        <!-- Reply End -->
-    </ul>
-    <!-- Comment End -->
-    <!-- Comments -->
-    <ul class="collection">
-        <li class="collection-item avatar">
-            <img src="{% static 'favicons/favicon.png' %}" alt="" class="circle">
-            <span class="title">Usre Name</span>
-            <p>Comment date <br>
-               Lorem Ipsum Dolor Amet.
-            </p>
-            <div class="row comment-controls">
-                <ul class="collection no-border">
-                    <li  class="waves-effect collection-item">
-                        <i class="material-icons small red-text">sentiment_very_satisfied</i>
-                    </li>
-                    <li  class="waves-effect collection-item">
-                        <div class="input-field no-border">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Reply...</label>
-                            <button class="btn waves-effect waves-light red" type="submit" name="action">Send
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <!-- Reply -->
-        <li class="collection-item avatar reply">
-            <img src="{% static 'favicons/favicon.png' %}" alt="" class="circle">
-            <span class="title">Usre Name</span>
-            <p>Comment date <br>
-               Lorem Ipsum Dolor Amet.
-            </p>
-            <div class="col s2 right" style="position: absolute; top:10%; right:6%;">
-                <i class="material-icons small red-text waves-effect">sentiment_very_satisfied</i>
-            </div>
-        </li>
-        <!-- Reply End -->
-    </ul>
-    <!-- Comment End -->
-    <!-- Comments -->
-    <ul class="collection">
-        <li class="collection-item avatar">
-            <img src="{% static 'favicons/favicon.png' %}" alt="" class="circle">
-            <span class="title">Usre Name</span>
-            <p>Comment date <br>
-               Lorem Ipsum Dolor Amet.
-            </p>
-            <div class="row comment-controls">
-                <ul class="collection no-border">
-                    <li  class="waves-effect collection-item">
-                        <i class="material-icons small red-text">sentiment_very_satisfied</i>
-                    </li>
-                    <li  class="waves-effect collection-item">
-                        <div class="input-field no-border">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Reply...</label>
-                            <button class="btn waves-effect waves-light red" type="submit" name="action">Send
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <!-- Reply -->
-        <li class="collection-item avatar reply">
-            <img src="{% static 'favicons/favicon.png' %}" alt="" class="circle">
-            <span class="title">Usre Name</span>
-            <p>Comment date <br>
-               Lorem Ipsum Dolor Amet.
-            </p>
-            <div class="col s2 right" style="position: absolute; top:10%; right:6%;">
-                <i class="material-icons small red-text waves-effect">sentiment_very_satisfied</i>
-            </div>
-        </li>
-        <!-- Reply End -->
-    </ul>
-    <!-- Comment End -->
-    <!-- Comments -->
-    <ul class="collection">
-        <li class="collection-item avatar">
-            <img src="{% static 'favicons/favicon.png' %}" alt="" class="circle">
-            <span class="title">Usre Name</span>
-            <p>Comment date <br>
-               Lorem Ipsum Dolor Amet.
-            </p>
-            <div class="row comment-controls">
-                <ul class="collection no-border">
-                    <li  class="waves-effect collection-item">
-                        <i class="material-icons small red-text">sentiment_very_satisfied</i>
-                    </li>
-                    <li  class="waves-effect collection-item">
-                        <div class="input-field no-border">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Reply...</label>
-                            <button class="btn waves-effect waves-light red" type="submit" name="action">Send
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <!-- Reply -->
-        <li class="collection-item avatar reply">
-            <img src="{% static 'favicons/favicon.png' %}" alt="" class="circle">
-            <span class="title">Usre Name</span>
-            <p>Comment date <br>
-               Lorem Ipsum Dolor Amet.
-            </p>
-            <div class="col s2 right" style="position: absolute; top:10%; right:6%;">
-                <i class="material-icons small red-text waves-effect">sentiment_very_satisfied</i>
-            </div>
-        </li>
-        <!-- Reply End -->
-    </ul>
-    <!-- Comment End -->
+    {% endfor %}
 </div>
 {% endblock body %}
 {% block sidenav %}

@@ -64,15 +64,15 @@ class Reply(models.Model):
     def __str__(self):
         return self.content[:50]
 
+    class Meta:
+        verbose_name_plural = 'Replies'
+
 
 class Comment(models.Model):
     user = models.ForeignKey(Author, on_delete=models.CASCADE)
     content = models.CharField(max_length=100, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     replies = models.ManyToManyField(Reply, blank=True)
-
-    class Meta:
-        verbose_name_plural = 'Replies'
 
     def __str__(self):
         return self.content[:50]
