@@ -29,27 +29,30 @@
 <body>
     <div class="container">
         <div class="row">
-            <form class="col s12" id="login-form">
+            <form method="POST" class="col s12" id="login-form">
+                {% csrf_token %}
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="email" type="email" class="validate" required>
-                        <label for="user_name">Email</label>
+                        {{form.username}}
+                        <!-- <input id="username" type="text" class="validate" required> -->
+                        <label for="username">Username</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="password" type="password" class="validate" minlength="6" name="password" required>
+                        {{form.password}}
+                        <!-- <input id="password" type="password" class="validate" minlength="6" name="password" required> -->
                         <label for="password">Password</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <button class="btn btn-large btn-register waves-effect waves-light" type="submit" name="action">Login
+                        <button class="btn btn-large btn-register waves-effect waves-light" value="login" type="submit" name="action">Login
                             <i class="material-icons right">done</i>
                         </button>
                     </div>
                 </div>
-                <a href="/signup">New User? Create an account first! </a>
+                <a href="/account/signup">New User? Create an account first! </a>
             </form>
         </div>
     </div>    

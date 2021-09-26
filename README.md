@@ -100,3 +100,7 @@
 <u>Day:24</u>
 <p>Created signup form!!!!! Woo!!!! It works!!!!!!! Yesterday was a mess but I learned from that.</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:25</u>
+<p>Created the login form today. Took some time to do it. Came across several errors and stupid mistakes... LOL</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
