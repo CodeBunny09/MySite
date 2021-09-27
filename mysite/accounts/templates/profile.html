@@ -5,10 +5,15 @@ Silly | Dashboard
 {% endblock title %}
 {% block body %}
 <div class="row">
+  <form action="." method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form}}
+  <input type="submit" value="update" class="btn waves-effect">
+</form>
     <!-- Profile Pic -->
-    <div class="col s3">
-        <img class="materialboxed rounded" width="180" src="{% static 'favicons/favicon.png' %}" alt="pfp">
-        <form action="#">
+    <!-- <div class="col s3">
+        <img class="materialboxed rounded" width="180" src="{}" alt="pfp">
+        <form action="." method="POST" enctype="multipart/form-data">
             <div class="file-field input-field">
                 <div class="btn waves-effect waves-teal">
                     <span>Change</span>
@@ -19,9 +24,9 @@ Silly | Dashboard
                 </div>
             </div>
         </form>
-    </div>
+    </div> -->
     <!-- Profile Details -->
-    <h2>Profile</h2>
+    <!-- <h2>Profile</h2>
     <div class="col s9">
         <input class="username" value="@i_am_lol"></input>
         <div class="row">
@@ -33,9 +38,9 @@ Silly | Dashboard
                 </div>
             </form>
         </div>
-          <h2>Connections</h2>
+          <h2>Connections</h2> -->
           <!-- Facebook Link -->
-          <div class="row">
+          <!-- <div class="row">
             <form class="col s12">
               <div class="row">
                 <div class="input-field col s12">
@@ -44,9 +49,9 @@ Silly | Dashboard
                 </div>
               </div>
             </form>
-          </div>
+          </div> -->
           <!-- Instagram Link -->
-          <div class="row">
+          <!-- <div class="row">
             <form class="col s12">
               <div class="row">
                 <div class="input-field col s12">
@@ -55,9 +60,9 @@ Silly | Dashboard
                 </div>
               </div>
             </form>
-          </div>
+          </div> -->
           <!-- Twitter Link -->
-          <div class="row">
+          <!-- <div class="row">
             <form class="col s12">
               <div class="row">
                 <div class="input-field col s12">
@@ -66,9 +71,9 @@ Silly | Dashboard
                 </div>
               </div>
             </form>
-          </div>
+          </div> -->
                   <!-- Personal -->
-        <h2>Account Details</h2>
+        <!-- <h2>Account Details</h2>
         <form>
             <div class="row">
               <div class="input-field col s6">
@@ -128,7 +133,7 @@ Silly | Dashboard
                 <i class="material-icons">save</i>
             </a>
         </div>
-    </div>
+    </div> -->
     <!-- Profile Details End -->
 </div>
 {% endblock body %}

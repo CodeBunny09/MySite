@@ -33,18 +33,28 @@
 </head>
 <body>
     <!--Navbar-->
+    <!-- Catagories -->
     <ul id="catagory-drop" class="dropdown-content">
         <li><a href="/query">Cat 1</a></li>
         <li><a href="#!">Cat 2</a></li>
         <li><a href="#!">Cat 3</a></li>
     </ul>
+    <!-- About -->
     <ul id="about-drop" class="dropdown-content">
         <li><a href="#">About Blog</a></li>
         <li><a href="/about-author">About Me</a></li>
     </ul>
+    <!-- Account -->
     <ul id="account-drop" class="dropdown-content">
+        {% if request.user.is_authenticated %}
         <li><a href="/profile-pub">Profile</a></li>
-        <li><a href="/profile">Profile Settings</a></li>
+        <li><a href="{% url 'accounts:account-profile' %}">Profile Settings</a></li>
+        <li class="divider"></li>
+        <li><a href="{% url 'accounts:account-logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'accounts:account-login' %}">Login</a></li>
+        <li><a href="{% url 'accounts:account-register' %}">SignUp</a></li>
+        {% endif %}
     </ul>
     <nav>
         <div class="nav-wrapper">
@@ -53,10 +63,10 @@
             </div>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'blog:blog-index' %}">Home</a></li>
                 <li><a class="dropdown-trigger" href="#" data-target="catagory-drop">Catagories<i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="dropdown-trigger" href="#" data-target="about-drop">About<i class="material-icons right">arrow_drop_down</i></a></li>
-                <li><a class="dropdown-trigger" href="#" data-target="account-drop">Account<i class="material-icons right">arrow_drop_down</i></a></li> 
+                <li><a class="dropdown-trigger" data-target="about-drop">About<i class="material-icons right">arrow_drop_down</i></a></li>
+                <li><a class="dropdown-trigger" data-target="account-drop">Account<i class="material-icons right">arrow_drop_down</i></a></li> 
                 <li>    
                     <div class="center row">
                        <div class="col s12 " >
@@ -86,14 +96,19 @@
                 </div>
             </div>          
         </li>   
-        <li><a href="#">Home</a></li>
+        <li><a href="{% url 'blog:blog-index' %}">Home</a></li>
         <li><a href="#">Trending</a></li>
         <li><a href="#">Catagories</a></li>
         <li class="divider"></li>
+        {% if request.user.is_authenticated %}
         <li><a href="/profile-pub">Profile</a></li>
-        <li><a href="/profile">Profile Settings</a></li>
-        <li><a href="#" ></a>
-        </li> 
+        <li><a href="{% url 'accounts:account-profile' %}">Profile Settings</a></li>
+        <li><a href="{% url 'accounts:account-login' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'accounts:account-profile' %}">Login</a></li>
+        <li><a href="{% url 'accounts:account-register' %}">SignUp</a></li>
+        {% endif %}
+
     </ul>
     <!-- Page Layout here -->
     <div class="row container">

@@ -1,6 +1,10 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout as lt
+from .forms import UpdateForm
+
 
 # Create your views here.
 def register(req):
@@ -11,7 +15,7 @@ def register(req):
             new_user = form.save()
             authenticate(req, username=form.cleaned_data['username'], password=form.cleaned_data['password1'])
             login(req, new_user)
-            return redirect("blog:blog-index")
+            return redirect("accounts:account-profile")
     context.update({
         "form": form,
         "title": "Signup",
@@ -32,3 +36,26 @@ def login_(req):
         "title": "Login"
     })
     return render(req, 'login.html', context)
+
+
+@login_required
+def update_profile(req):
+    context = {}
+    user = req.user
+    form = UpdateForm(req.POST, req.FILES)
+    if req.method == "POST":
+        if form.is_valid():
+            updated_profile = form.save(commit=False)
+            updated_profile.user = user
+            updated_profile.save()
+            return redirect("blog:blog-index")
+    context.update({
+        "form": form,
+        "Title": "Update Profile"
+    })
+    return render(req, 'profile.html', context)
+
+@login_required
+def logout(req):
+    lt(req)
+    return redirect("blog:blog-index")
