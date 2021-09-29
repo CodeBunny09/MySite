@@ -108,3 +108,7 @@
 <u>Day:26</u>
 <p>Whoa! Today I did the Update Profile page, and added Logout functionality, and made the pages a bit more responsive.</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:27</u>
+<p>I was stuck for a long time working with forms, at last... I was able to make the public profile and create-posts page!!! </p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>

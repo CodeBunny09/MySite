@@ -1,10 +1,12 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from blog.models import Author, Catagory, Post
 from .utils import update_views
+from django.contrib.auth.decorators import login_required
+from .forms import PostForm
 # Create your views here.
 
 def index(req):
-    posts = Post.objects.all()
+    posts = Post.objects.all()[::-1]
     context = {
         'posts': posts
     }
@@ -19,24 +21,28 @@ def post(req, slug):
     update_views(req, post)
     return render(req, 'post.html', context)
 
-def make_post(req):
-    return render(req, 'create.html')
-
-def login(req):
-    return render(req, 'login.html')
-
-def signup(req):
-    return render(req, 'signup.html')
-
-def profile(req):
-    return render(req, 'profile.html')
-
-def profile_pub(req):
-    return render(req, 'profile-pub.html')
-
-def network_stats(req):
-    return render(req, 'network-stats.html')
-
-
 def query(req):
     return render(req, 'post-query.html')
+
+@login_required
+def make_post(req):
+    context = {}
+    form = PostForm(req.POST or None)
+    if req.method == "POST":
+        if form.is_valid():
+            author = Author.objects.get(user=req.user)
+            new_post = form.save(commit=False)
+            new_post.user = author
+            new_post.save()
+            return redirect('blog:blog-index')
+    context.update({
+        'form': form,
+        'title': 'Create A Post'
+    })
+
+    return render(req, 'create.html', context)
+
+
+@login_required
+def network_stats(req):
+    return render(req, 'network-stats.html')

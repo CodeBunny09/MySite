@@ -1,4 +1,5 @@
 {% extends 'partials/partials.html' %}
+{% load hitcount_tags %}
 {% load static %}
 {% block title %}
 Silly | Dashboard
@@ -7,12 +8,13 @@ Silly | Dashboard
 <div class="row">
     <!-- Profile Pic -->
     <div class="col s3">
-        <img class="materialboxed rounded" width="180" src="{% static 'favicons/favicon.png' %}" alt="pfp">
+        <img class="materialboxed rounded" width="180" src="{{author.profile_pic.url}} %}" alt="pfp">
     </div>
     <!-- Profile Details -->
     <div class="col s9">
-        <span class="username">@i_am_lol</span>
-        <p class="bio" >Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+        <span class="username">@{{author.user.username}}</span><br>
+        <span class="name">{{author.fullname}}</span>
+        <p class="bio" >{{author.bio | safe}}</p>
         <!-- Connections -->
         <a href="#insta-ilnk">
             <div class="chip waves-effect">
@@ -41,7 +43,7 @@ Silly | Dashboard
     <a href="#posts">
         <div class="col center-align s4 black-text waves-effect">
             <h3>Posts</h3>
-            <h5>5</h5>
+            <h5>{{author.num_posts}}</h5>
         </div>
     </a>
     <a href="/network-stats">
@@ -83,124 +85,36 @@ Silly | Dashboard
 </div>
 <hr>
 <div class="section scrollspy" id="posts">
-    <h2 class="header" id="posts">Your Posts</h2>
+    <h2 class="header" id="posts">Posts By {{author.fullname}}</h2>
+    {% for post in posts %}
     <!--Card Start-->
     <div class="card horizontal">
         <div class="card-stacked">
             <div class="card-content">
-                <h3>Title</h3>
+                <h3>{{post.title}}</h3>
                 <ul class="linear-list">
+                    {% for catagory in post.catagory.all %}
                     <li>
                         <div class="chip">
-                            <a href="#">Cat1</a>
+                            <a href="#">{{ catagory }}</a>
                           </div>
                     </li>
-                    <li>
-                        <div class="chip">
-                            <a href="#">Cat1</a>
-                          </div>
-                    </li>
-                    <li>
-                        <div class="chip">
-                            <a href="#">Cat1</a>
-                          </div>
-                    </li>
-                    <li>
-                        <div class="chip">
-                            <a href="#">Cat1</a>
-                          </div>
-                    </li>
+                    {% endfor %}
                 </ul>
-                <p>Description.  Lorem Ipsum Dolor, Lorem Ipsum Dolor, Lorem Ipsum Dolor, Lorem Ipsum Dolor, Lorem Ipsum Dolor, LoremIpsum Dolor, Lorem Ipsum Dolor, Lorem Ipsum Dolor</p>
+                <p>{{ post.content }}</p>
             </div>
             <div class="card-action">
-                <a class="waves-effect waves-light btn btn-small" href="/post">View Post</a>
-                <span class="right"> 45654 Views</span><br>
+                <a class="waves-effect waves-light btn btn-small" href="{{post.get_url}}">View Post</a>
+                <span class="right"> {% get_hit_count for post %} Views</span><br>
                 <span class="right"> 45654 Points</span>
             </div>
             <div class="card-content card-footer">
-                Post By <a href="#">Author</a> on <a href="#">Date</a>
+                Post on <a href="#">{{post.date | date}}</a>
             </div>
         </div>
     </div>
-    <!--Card Start-->
-    <div class="card horizontal">
-        <div class="card-stacked">
-            <div class="card-content">
-                <h3>Title</h3>
-                <ul class="linear-list">
-                    <li>
-                        <div class="chip">
-                            <a href="#">Cat1</a>
-                          </div>
-                    </li>
-                    <li>
-                        <div class="chip">
-                            <a href="#">Cat1</a>
-                          </div>
-                    </li>
-                    <li>
-                        <div class="chip">
-                            <a href="#">Cat1</a>
-                          </div>
-                    </li>
-                    <li>
-                        <div class="chip">
-                            <a href="#">Cat1</a>
-                          </div>
-                    </li>
-                </ul>
-                <p>Description.  Lorem Ipsum Dolor, Lorem Ipsum Dolor, Lorem Ipsum Dolor, Lorem Ipsum Dolor, Lorem Ipsum Dolor, LoremIpsum Dolor, Lorem Ipsum Dolor, Lorem Ipsum Dolor</p>
-            </div>
-            <div class="card-action">
-                <a class="waves-effect waves-light btn btn-small" href="/post">View Post</a>
-                <span class="right"> 45654 Views</span><br>
-                <span class="right"> 45654 Points</span>
-            </div>
-            <div class="card-content card-footer">
-                Post By <a href="#">Author</a> on <a href="#">Date</a>
-            </div>
-        </div>
-    </div>
-    <!--Card Start-->
-    <div class="card horizontal">
-        <div class="card-stacked">
-            <div class="card-content">
-                <h3>Title</h3>
-                <ul class="linear-list">
-                    <li>
-                        <div class="chip">
-                            <a href="#">Cat1</a>
-                          </div>
-                    </li>
-                    <li>
-                        <div class="chip">
-                            <a href="#">Cat1</a>
-                          </div>
-                    </li>
-                    <li>
-                        <div class="chip">
-                            <a href="#">Cat1</a>
-                          </div>
-                    </li>
-                    <li>
-                        <div class="chip">
-                            <a href="#">Cat1</a>
-                          </div>
-                    </li>
-                </ul>
-                <p>Description.  Lorem Ipsum Dolor, Lorem Ipsum Dolor, Lorem Ipsum Dolor, Lorem Ipsum Dolor, Lorem Ipsum Dolor, LoremIpsum Dolor, Lorem Ipsum Dolor, Lorem Ipsum Dolor</p>
-            </div>
-            <div class="card-action">
-                <a class="waves-effect waves-light btn btn-small" href="/post">View Post</a>
-                <span class="right"> 45654 Views</span><br>
-                <span class="right"> 45654 Points</span>
-            </div>
-            <div class="card-content card-footer">
-                Post By <a href="#">Author</a> on <a href="#">Date</a>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
+    <!--Card End-->
 </div>
 {% endblock body %}
 {% block sidenav %}

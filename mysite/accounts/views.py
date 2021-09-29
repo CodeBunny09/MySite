@@ -4,6 +4,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as lt
 from .forms import UpdateForm
+from blog.models import Post, Author
 
 
 # Create your views here.
@@ -59,3 +60,15 @@ def update_profile(req):
 def logout(req):
     lt(req)
     return redirect("blog:blog-index")
+
+@login_required
+def profile(req):
+    context = {}
+    user = req.user
+    author =  Author.objects.get(user=user)
+    posts = Post.objects.filter(user=author)[::-1]
+    context.update({
+        'author': author,
+        'posts': posts,
+    })
+    return render(req, 'profile-pub.html', context)

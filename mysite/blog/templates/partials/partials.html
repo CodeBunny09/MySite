@@ -47,7 +47,7 @@
     <!-- Account -->
     <ul id="account-drop" class="dropdown-content">
         {% if request.user.is_authenticated %}
-        <li><a href="/profile-pub">Profile</a></li>
+        <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
         <li><a href="{% url 'accounts:account-profile' %}">Profile Settings</a></li>
         <li class="divider"></li>
         <li><a href="{% url 'accounts:account-logout' %}">Logout</a></li>
@@ -64,6 +64,9 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{% url 'blog:blog-index' %}">Home</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="{% url 'blog:post-blog' %}">Post</a></li>
+                {% endif %}
                 <li><a class="dropdown-trigger" href="#" data-target="catagory-drop">Catagories<i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a class="dropdown-trigger" data-target="about-drop">About<i class="material-icons right">arrow_drop_down</i></a></li>
                 <li><a class="dropdown-trigger" data-target="account-drop">Account<i class="material-icons right">arrow_drop_down</i></a></li> 

@@ -1,3 +1,4 @@
+import django
 from django.db import models
 from django.db.models.base import Model
 from django.db.models.deletion import CASCADE
@@ -9,7 +10,8 @@ from tinymce.models import HTMLField
 from hitcount.models import HitCountMixin, HitCount
 from taggit.managers import TaggableManager
 from django.shortcuts import reverse
-
+import datetime
+from django.utils import timezone
 
 
 # Create your models here.
@@ -31,6 +33,10 @@ class Author(models.Model):
 
     def __str__(self):
         return self.fullname
+    
+    @property
+    def num_posts(self):
+        return Post.objects.filter(user=self).count()
 
 
 class Catagory(models.Model):
@@ -94,7 +100,8 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
+            self.slug = slugify(f'{self.title}{datetime.date.today()}{self.user.user.username}{timezone.now()}')
+            print(self.slug)
         super(Post, self).save(*args, **kwargs)
 
     def __str__(self):

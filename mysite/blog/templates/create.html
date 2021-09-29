@@ -6,21 +6,23 @@ Silly | Post
 {% endblock title %}
 {% block body %}
 <h1>Create a post</h1>
-<form action="">
-    <div class="row"> <!--Title-->
+<form action="." method="POST">
+    {% csrf_token %}
+    {{form}}
+    <!-- <div class="row"> Title
         <div class="input-field col s6">
             <input id="title" type="text" data-length="100">
             <label for="title"><b>Title</b></label>
         </div>
     </div>
-    <div class="row"> <!--Content-->
-        <div class="input-field col s12">
+    <div class="row"> Content -->
+        <!-- <div class="input-field col s12">
             <textarea id="content" class="materialize-textarea" data-length="500"></textarea>
             <label for="content">Content</label>
         </div>
     </div>
-    <div class="row"> <!--Catagories-->
-        <div class="col s3">
+    <div class="row"> Catagories -->
+        <!-- <div class="col s3">
             <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Catagories</a>
         
             <ul id='dropdown1' class='dropdown-content'>
@@ -50,7 +52,7 @@ Silly | Post
                 </ul>
             </p>
         </div>
-    </div>
+    </div> -->
     <button class="btn waves-effect waves-light red" type="submit" name="action">Post
         <i class="material-icons right">send</i>
     </button>
