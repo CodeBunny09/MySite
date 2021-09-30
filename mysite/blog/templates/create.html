@@ -8,7 +8,9 @@ Silly | Post
 <h1>Create a post</h1>
 <form action="." method="POST">
     {% csrf_token %}
-    {{form}}
+    <div>
+        {{form}}
+    </div>
     <!-- <div class="row"> Title
         <div class="input-field col s6">
             <input id="title" type="text" data-length="100">

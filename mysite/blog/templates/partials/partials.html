@@ -102,13 +102,16 @@
         <li><a href="{% url 'blog:blog-index' %}">Home</a></li>
         <li><a href="#">Trending</a></li>
         <li><a href="#">Catagories</a></li>
+        {% if request.user.is_authenticated %}
+            <li><a href="{% url 'blog:post-blog' %}">Create Post</a></li>
+        {% endif %}
         <li class="divider"></li>
         {% if request.user.is_authenticated %}
-        <li><a href="/profile-pub">Profile</a></li>
+        <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
         <li><a href="{% url 'accounts:account-profile' %}">Profile Settings</a></li>
-        <li><a href="{% url 'accounts:account-login' %}">Logout</a></li>
+        <li><a href="{% url 'accounts:account-logout' %}">Logout</a></li>
         {% else %}
-        <li><a href="{% url 'accounts:account-profile' %}">Login</a></li>
+        <li><a href="{% url 'accounts:account-login' %}">Login</a></li>
         <li><a href="{% url 'accounts:account-register' %}">SignUp</a></li>
         {% endif %}
 

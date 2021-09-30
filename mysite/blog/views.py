@@ -31,7 +31,9 @@ def make_post(req):
     if req.method == "POST":
         if form.is_valid():
             author = Author.objects.get(user=req.user)
-            new_post = form.save(commit=False)
+            form.save(commit=False)
+            form.save_m2m()
+            new_post = form
             new_post.user = author
             new_post.save()
             return redirect('blog:blog-index')
