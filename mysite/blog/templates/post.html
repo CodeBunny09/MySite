@@ -46,6 +46,14 @@ Silly | {{post.title}}
                     </li>
                     {% endfor %}
                 </ul>
+                <!-- Tags -->
+                <ul class="linear-list">
+                    {% for tag in post.tags.all %}
+                    <li>
+                        <a href="#">#{{tag}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
             </p>
         </div>
     </div>
@@ -55,17 +63,16 @@ Silly | {{post.title}}
     </div>
     <!-- Comment Post -->
     <div class="row">
-        <form class="col s12">
+        <form action="{{post.geturl}}" class="col s12" name="comment-form" method="POST">
+            {% csrf_token %}
             <div class="row">
-                <form action="#">
-                    <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                        <label for="textarea1">Comment...</label>
-                        <button class="btn waves-effect waves-light red" type="submit" name="action">Post
-                            <i class="material-icons right">send</i>
-                        </button>
-                    </div>
-                </form>
+                <div class="input-field col s12">
+                    <textarea name="comment" id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Comment...</label>
+                    <button class="btn waves-effect waves-light red" name="comment-form" type="submit">Post
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
             </div>
         </form>
     </div>
@@ -84,13 +91,17 @@ Silly | {{post.title}}
                         <i class="material-icons small red-text">sentiment_very_satisfied</i>
                     </li>
                     <li  class="waves-effect collection-item">
-                        <div class="input-field no-border">
-                            <textarea id="textarea1" class="materialize-textarea"></textarea>
-                            <label for="textarea1">Reply...</label>
-                            <button class="btn waves-effect waves-light red" type="submit" name="action">Send
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
+                        <form action="{{post.get_url}}" method="POST">
+                            {% csrf_token %}
+                            <div class="input-field no-border">
+                                <textarea name="reply" id="comment{{ comment.id }}" class="materialize-textarea"></textarea>
+                                <label for="comment{{ comment.id }}">Reply...</label>
+                                <button class="btn waves-effect waves-light red" type="submit" name="reply-form">Send
+                                    <i class="material-icons right">send</i>
+                                </button>
+                                <input name="comment-id" value={{ comment.id }} type="hidden" >
+                            </div>
+                        </form>
                     </li>
                 </ul>
             </div>

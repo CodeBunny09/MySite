@@ -112,3 +112,11 @@
 <u>Day:27</u>
 <p>I was stuck for a long time working with forms, at last... I was able to make the public profile and create-posts page!!! </p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:28</u>
+<p>Tried to fix a bug but that threw errors!😶😶</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:29</u>
+<p>Fixed the bug where the code broke and did a hell of lotta things!!</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
