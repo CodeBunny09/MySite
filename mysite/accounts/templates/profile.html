@@ -10,6 +10,21 @@ Silly | Dashboard
   {{form}}
   <input type="submit" value="update" class="btn waves-effect">
 </form>
+</div>
+<div class="container">
+  <a class="waves-effect waves-light red btn modal-trigger secondary-content" href="#delete">Delete Account</a>
+  
+  <!-- Modal Structure -->
+  <div id="delete" class="modal">
+    <div class="modal-content">
+      <h4>Are you sure???</h4>
+      <p>Deleting your account means you and <b>your {{user.num_posts}} posts</b> will be <b>non existent</b> in this platform. Your <b><i>69 friend(s)</i> can no more</b> see your fun stuff here. If you start again, you have to <b>start from the begining</b>. We would recommend rather <b>staying off this platform</b> for few days and <i>returning back again if you want to</i>, or leave it as it is.<br>Thanks For Your Attention</p>
+    </div>
+    <div class="modal-footer">
+      <a class="modal-close waves-effect waves-green btn-flat">Shit! I clicked it by mistake</a>
+      <a href="{% url 'accounts:account-delete' %}" class="modal-close waves-effect waves-green red btn-flat">Yes, delete it!</a>
+    </div>
+  </div>
     <!-- Profile Pic -->
     <!-- <div class="col s3">
         <img class="materialboxed rounded" width="180" src="{}" alt="pfp">

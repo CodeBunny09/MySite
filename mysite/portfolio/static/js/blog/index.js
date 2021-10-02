@@ -7,7 +7,8 @@ $( document ).ready(function() {
     $('.materialboxed').materialbox();
     $('.scrollspy').scrollSpy();
     $('.tabs').tabs({ 'swipeable': true });
-    $('input#title, textarea#content').characterCounter();    
+    $('input#title, textarea#content').characterCounter();
+    $('.modal').modal();
 
     
     // SignUp

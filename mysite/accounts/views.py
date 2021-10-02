@@ -1,10 +1,11 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import get_user_model, login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as lt
 from .forms import UpdateForm
 from blog.models import Post, Author
+from django.contrib.auth import get_user
 
 
 # Create your views here.
@@ -44,15 +45,20 @@ def update_profile(req):
     context = {}
     user = req.user
     form = UpdateForm(req.POST, req.FILES)
+    author = Author.objects.filter(user=user)
     if req.method == "POST":
         if form.is_valid():
             updated_profile = form.save(commit=False)
             updated_profile.user = user
-            updated_profile.save()
+            print(dir(author))
+            author.update(fullname=updated_profile.fullname)
+            author.update(bio=updated_profile.bio)
+            author.update(profile_pic=updated_profile.profile_pic)
             return redirect("blog:blog-index")
     context.update({
         "form": form,
-        "Title": "Update Profile"
+        "Title": "Update Profile",
+        'user': author
     })
     return render(req, 'profile.html', context)
 
@@ -72,3 +78,14 @@ def profile(req):
         'posts': posts,
     })
     return render(req, 'profile-pub.html', context)
+
+@login_required
+def delete_profile(req):
+    # User = get_user_model()
+    user = req.user
+    user.delete()
+    # user = User.objects.get(id=req.user.id)
+    # author = Author.objects.get(user=user)
+    # author.delete()
+    # user.delete()
+    return redirect("blog:blog-index")
