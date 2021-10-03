@@ -14,13 +14,13 @@
 <h1>Steps for running it locally:-</h1>
 <ul>
     <li>Clone the repo.</li>
-    <li>open the terminal and ```pip freeze > requirements.txt```</li>
-    <li>```pip install -r requirements.txt```</li>
-    <li>```cd mysitte```</li>
-    <li>```python manage.py makemigrations```</li>
-    <li>```python manage.py migrate```</li>
-    <li>```python manage.py createsuperuser```</li>
-    <li>```python manage.py rinserver```</li>
+    <li>open the terminal and ` pip freeze > requirements.txt `</li>
+    <li>` pip install -r requirements.txt `</li>
+    <li>` cd mysitte `</li>
+    <li>` python manage.py makemigrations `</li>
+    <li>` python manage.py migrate `</li>
+    <li>` python manage.py createsuperuser `</li>
+    <li>` python manage.py rinserver `</li>
 </ul>
 
 <h3>Enjoy Your Development!!!!😁🥳</h3>
