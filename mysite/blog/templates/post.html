@@ -9,7 +9,7 @@ Silly | {{post.title}}
     <!-- User data -->
     <div class="row">
         <ul class="collection">
-            <li class="collection-item avatar">
+            <li class="collection-item avatar" href="{{post.user.get_url}}">
               <img src="{{post.user.profile_pic.url}}" alt="{{post.user.fullname}}" class="circle">
               <span class="username-header title"><h5>{{post.user.fullname | title}}</h5></span>
               <a href="#" class="secondary-content">{{post.date | date}}</a>
@@ -81,7 +81,7 @@ Silly | {{post.title}}
     <ul class="collection">
         <li class="collection-item avatar">
             <img src="{{comment.user.profile_pic.url}}" alt="{{comment.user.fullname | title}}" class="circle">
-            <span class="title">{{comment.user.fullname | title}}</span>
+            <span href="{{post.user.get_url}}" class="title">{{comment.user.fullname | title}}</span>
             <p>{{comment.date | date}} <br>
                {{comment.content}}
             </p>
@@ -110,7 +110,7 @@ Silly | {{post.title}}
         {% for reply in comment.replies.all %}
         <li class="collection-item avatar reply">
             <img src="{{reply.user.profile_pic.url}}" alt="{{reply.user.fullname | title}}" class="circle">
-            <span class="title">{{ reply.user.fullname | title }}</span>
+            <span  href="{{post.user.get_url}}" class="title">{{ reply.user.fullname | title }}</span>
             <p>{{ reply.date | date }}<br>
                {{ reply.content }}
             </p>

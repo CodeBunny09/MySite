@@ -50,10 +50,13 @@ def update_profile(req):
         if form.is_valid():
             updated_profile = form.save(commit=False)
             updated_profile.user = user
-            print(dir(author))
-            author.update(fullname=updated_profile.fullname)
-            author.update(bio=updated_profile.bio)
-            author.update(profile_pic=updated_profile.profile_pic)
+            print("user id: ", user.id)
+            author.update_or_create(
+                user_id=user.id,
+                fullname=updated_profile.fullname,
+                bio=updated_profile.bio,
+                profile_pic=updated_profile.profile_pic
+            )
             return redirect("blog:blog-index")
     context.update({
         "form": form,
@@ -68,10 +71,10 @@ def logout(req):
     return redirect("blog:blog-index")
 
 @login_required
-def profile(req):
+def profile(req, author_slug):
     context = {}
     user = req.user
-    author =  Author.objects.get(user=user)
+    author =  Author.objects.get(slug = author_slug)
     posts = Post.objects.filter(user=author)[::-1]
     context.update({
         'author': author,

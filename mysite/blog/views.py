@@ -9,10 +9,11 @@ def index(req):
     posts = Post.objects.all()[::-1]
     num_posts = Post.objects.all().count()
     num_users = Author.objects.all().count()
+    
     context = {
         'posts': posts,
         'num_posts' : num_posts,
-        'num_users' : num_users
+        'num_users' : num_users,
     }
 
     return render(req, 'home.html', context=context)

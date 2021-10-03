@@ -28,7 +28,7 @@ class Author(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.fullname)
+            self.slug = slugify(self.fullname + self.id + self.user.username)
         super(Author, self).save(*args, **kwargs)
 
     def __str__(self):
@@ -37,6 +37,11 @@ class Author(models.Model):
     @property
     def num_posts(self):
         return Post.objects.filter(user=self).count()
+
+    def get_url(self):
+        return reverse("accounts:profile", kwargs={
+            "author_slug": self.slug
+        })
 
 
 class Catagory(models.Model):

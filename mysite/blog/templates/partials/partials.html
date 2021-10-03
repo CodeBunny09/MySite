@@ -47,7 +47,7 @@
     <!-- Account -->
     <ul id="account-drop" class="dropdown-content">
         {% if request.user.is_authenticated %}
-        <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
+        <li><a href="">Profile</a></li>
         <li><a href="{% url 'accounts:account-profile' %}">Profile Settings</a></li>
         <li class="divider"></li>
         <li><a href="{% url 'accounts:account-logout' %}">Logout</a></li>
@@ -107,7 +107,7 @@
         {% endif %}
         <li class="divider"></li>
         {% if request.user.is_authenticated %}
-        <li><a href="{% url 'accounts:profile' %}">Profile</a></li>
+        <li><a href="">Profile</a></li>
         <li><a href="{% url 'accounts:account-profile' %}">Profile Settings</a></li>
         <li><a href="{% url 'accounts:account-logout' %}">Logout</a></li>
         {% else %}

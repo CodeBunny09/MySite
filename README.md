@@ -125,3 +125,7 @@
 <p>Okay, the basic project is complete, mow, I'm gonna do some bug hunting!!</p>
 <p>Added `delete` feature and fixed the bug which `created` new instances of `Author` model instead of `updating` it.</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:31</u>
+<p>Nothing new.... Removed bugs today.</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
