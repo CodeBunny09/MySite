@@ -28,7 +28,7 @@ class Author(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.fullname + self.id + self.user.username)
+            self.slug = slugify(f'{self.user.username}{timezone.now()}')
         super(Author, self).save(*args, **kwargs)
 
     def __str__(self):
@@ -98,7 +98,8 @@ class Post(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
     hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk', related_query_name='hit_count_generic_relation')
-    points = models.IntegerField(default=0)
+    upvotes = models.ManyToManyField(User, related_name='post_upvotes')
+    downvotes = models.ManyToManyField(User, related_name='post_downvotes')
     tags = TaggableManager()
     comments = models.ManyToManyField(Comment, blank=True)
 
@@ -116,3 +117,8 @@ class Post(models.Model):
         return reverse("blog:blog-post", kwargs={
             "slug": self.slug
         })
+    
+    def get_score(self):
+        upvotes = self.upvotes.all().count()
+        downvotes = self.downvotes.all().count()
+        return upvotes - downvotes

@@ -67,3 +67,16 @@ def make_post(req):
 @login_required
 def network_stats(req):
     return render(req, 'network-stats.html')
+
+
+@login_required
+def upvote(req, slug):
+    post = get_object_or_404(Post, slug=slug)
+    post.upvotes.add(req.user)
+    return redirect("blog:blog-post", slug)
+
+@login_required
+def downvote(req, slug):
+    post = get_object_or_404(Post, slug=slug)
+    post.downvotes.add(req.user)
+    return redirect("blog:blog-post", slug)

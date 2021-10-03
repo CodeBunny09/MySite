@@ -9,27 +9,35 @@ Silly | {{post.title}}
     <!-- User data -->
     <div class="row">
         <ul class="collection">
-            <li class="collection-item avatar" href="{{post.user.get_url}}">
-              <img src="{{post.user.profile_pic.url}}" alt="{{post.user.fullname}}" class="circle">
-              <span class="username-header title"><h5>{{post.user.fullname | title}}</h5></span>
-              <a href="#" class="secondary-content">{{post.date | date}}</a>
-            </li>
+            <a href="{{post.user.get_url}}" class="brand-logo black-text">
+                <li class="collection-item avatar">
+                    <img src="{{post.user.profile_pic.url}}" alt="{{post.user.fullname}}" class="circle">
+                    <span class="username-header title"><h5>{{post.user.fullname | title}}</h5></span>
+                    <a href="#" class="secondary-content">{{post.date | date}}</a>
+                </li>
+            </a>
         </ul>
     </div>
     <!-- Post heading and score actions -->
     <div class="row">
         <div class="col s2 center-align">
-            <a class="btn-floating waves-effect waves-light white" href="#" name='upvote'>
-                <i class="material-icons red-text medium">
-                    expand_less
-                </i>
-            </a><br>
-            <span>{{post.points}}</span><br>
-            <a class="btn-floating waves-effect waves-light white" href="#" name='downvote'>
-                <i class="material-icons red-text medium">
-                    expand_more
-                </i>
-            </a><br>
+            <form method="POST" action="{% url 'blog:blog-upvote' post.slug%}">
+                {% csrf_token %}
+                <button type="submit" class="btn-floating waves-effect waves-light white" name='post_id' value="{{ post.id }}">
+                    <i class="material-icons red-text medium">
+                        expand_less
+                    </i>
+                </button><br>
+            </form>
+            <form method="POST" action="{% url 'blog:blog-downvote' post.slug%}">
+                {% csrf_token %}
+                <span>{{post.get_score}}</span><br>
+                <button type="submit" class="btn-floating waves-effect waves-light white" name='post_id' value="{{ post.id }}">
+                    <i class="material-icons red-text medium">
+                        expand_more
+                    </i>
+                </button><br>
+            </form>
             <span>Views: {% get_hit_count for post %}</span><br>
             <a class="btn-floating white waves-effect waves-light"><i id="share" class="material-icons small red-text tooltipped" data-position="right" data-tooltip="Share">share</i></a>
         </div>
@@ -80,8 +88,10 @@ Silly | {{post.title}}
     <!-- Comments -->
     <ul class="collection">
         <li class="collection-item avatar">
-            <img src="{{comment.user.profile_pic.url}}" alt="{{comment.user.fullname | title}}" class="circle">
-            <span href="{{post.user.get_url}}" class="title">{{comment.user.fullname | title}}</span>
+            <a href="{{comment.user.get_url}}" class="brand-logo black-text">
+                <img src="{{comment.user.profile_pic.url}}" alt="{{comment.user.fullname | title}}" class="circle">
+                <span href="{{post.user.get_url}}" class="title">{{comment.user.fullname | title}}</span>
+            </a>
             <p>{{comment.date | date}} <br>
                {{comment.content}}
             </p>
@@ -109,8 +119,10 @@ Silly | {{post.title}}
         <!-- Reply -->
         {% for reply in comment.replies.all %}
         <li class="collection-item avatar reply">
-            <img src="{{reply.user.profile_pic.url}}" alt="{{reply.user.fullname | title}}" class="circle">
-            <span  href="{{post.user.get_url}}" class="title">{{ reply.user.fullname | title }}</span>
+            <a href="{{reply.user.get_url}}" class="brand-logo black-text">
+                <img src="{{reply.user.profile_pic.url}}" alt="{{reply.user.fullname | title}}" class="circle">
+                <span  href="{{post.user.get_url}}" class="title">{{ reply.user.fullname | title }}</span>
+            </a>
             <p>{{ reply.date | date }}<br>
                {{ reply.content }}
             </p>
