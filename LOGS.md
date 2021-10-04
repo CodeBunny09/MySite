@@ -133,3 +133,7 @@
 <u>Day:32</u>
 <p>Added Upvote and Downvote feature. 😎</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+<u>Day:33</u>
+<p>Added HAHA feature to replies and comments. 😁😁 😁😁</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>

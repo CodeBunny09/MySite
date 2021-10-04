@@ -80,3 +80,21 @@ def downvote(req, slug):
     post = get_object_or_404(Post, slug=slug)
     post.downvotes.add(req.user)
     return redirect("blog:blog-post", slug)
+
+@login_required
+def haha_comment(req, slug):
+    if req.method == 'POST':
+        id = req.POST.get("comment_id")
+        comment = get_object_or_404(Comment, id = id)
+        comment.haha.add(req.user)
+        return redirect("blog:blog-post", slug)
+    return redirect("blog:blog-post", slug)
+
+@login_required
+def haha_reply(req, slug):
+    if req.method == 'POST':
+        id = req.POST.get("reply_id")
+        reply = get_object_or_404(Reply, id = id)
+        reply.haha.add(req.user)
+        return redirect("blog:blog-post", slug)
+    return redirect("blog:blog-post", slug)

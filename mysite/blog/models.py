@@ -71,12 +71,17 @@ class Reply(models.Model):
     user = models.ForeignKey(Author, on_delete=models.CASCADE)
     content = models.CharField(max_length=100, blank=True)
     date = models.DateTimeField(auto_now_add=True)
+    haha = models.ManyToManyField(User)
 
     def __str__(self):
         return self.content[:50]
 
     class Meta:
         verbose_name_plural = 'Replies'
+    
+    def get_hahas(self):
+        num_hahas = self.haha.all().count()
+        return num_hahas
 
 
 class Comment(models.Model):
@@ -84,9 +89,14 @@ class Comment(models.Model):
     content = models.CharField(max_length=100, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     replies = models.ManyToManyField(Reply, blank=True)
+    haha = models.ManyToManyField(User)
 
     def __str__(self):
         return self.content[:50]
+
+    def get_hahas(self):
+        num_hahas = self.haha.all().count()
+        return num_hahas
 
 
 class Post(models.Model):

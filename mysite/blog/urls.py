@@ -10,4 +10,6 @@ urlpatterns = [
     path('query/', views.query, name='blog-query'),
     path('upvote/<slug>', views.upvote, name='blog-upvote'),
     path('downvote/<slug>', views.downvote, name='blog-downvote'),
+    path('haha-comment/<slug>', views.haha_comment, name='comment-haha'),
+    path('haha-reply/<slug>', views.haha_reply, name='reply-haha'),
 ]

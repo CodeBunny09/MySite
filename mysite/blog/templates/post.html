@@ -97,8 +97,14 @@ Silly | {{post.title}}
             </p>
             <div class="row comment-controls">
                 <ul class="collection no-border">
-                    <li  class="waves-effect collection-item">
-                        <i class="material-icons small red-text">sentiment_very_satisfied</i>
+                    <li  class="collection-item">
+                        <form method="POST" action="{% url 'blog:comment-haha' post.slug%}">
+                            {% csrf_token %}
+                            <button type="submit" class="waves-effect waves-light btn-small red" name="comment_id" value="{{comment.id}}">
+                                <i class="material-icons small white-text">sentiment_very_satisfied</i>
+                            </button>
+                            <span class="text-center">{{comment.get_hahas}}</span>
+                        </form>
                     </li>
                     <li  class="waves-effect collection-item">
                         <form action="{{post.get_url}}" method="POST">
@@ -127,7 +133,13 @@ Silly | {{post.title}}
                {{ reply.content }}
             </p>
             <div class="col s2 right" style="position: absolute; top:10%; right:6%;">
-                <i class="material-icons small red-text waves-effect">sentiment_very_satisfied</i>
+                <form method="POST" action="{% url 'blog:reply-haha' post.slug%}">
+                    {% csrf_token %}
+                    <button type="submit" class="waves-effect waves-light btn-small red" name="reply_id" value="{{reply.id}}">
+                        <i class="material-icons small white-text">sentiment_very_satisfied</i>
+                    </button>
+                    <span class="text-center">{{reply.get_hahas}}</span>
+                </form>
             </div>
         </li>
         {% endfor %}
