@@ -98,3 +98,11 @@ def haha_reply(req, slug):
         reply.haha.add(req.user)
         return redirect("blog:blog-post", slug)
     return redirect("blog:blog-post", slug)
+
+@login_required
+def del_post(req, slug):
+    if req.method == 'POST':
+        id = req.POST.get("post_id")
+        post = Post.objects.get(id = id)
+        post.delete()
+        return redirect("accounts:profile", slug)

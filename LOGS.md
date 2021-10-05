@@ -137,3 +137,6 @@
 <u>Day:33</u>
 <p>Added HAHA feature to replies and comments. 😁😁 😁😁</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+<u>Day:34</u>
+<p>Added delete post feature! Each day, I'm getting closer!!!</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>

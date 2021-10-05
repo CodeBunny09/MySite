@@ -12,4 +12,5 @@ urlpatterns = [
     path('downvote/<slug>', views.downvote, name='blog-downvote'),
     path('haha-comment/<slug>', views.haha_comment, name='comment-haha'),
     path('haha-reply/<slug>', views.haha_reply, name='reply-haha'),
+    path('delete-post/<slug>', views.del_post, name='delete-post'),
 ]

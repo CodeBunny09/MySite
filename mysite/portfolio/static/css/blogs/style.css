@@ -104,6 +104,12 @@ ul.linear-list li {
     border-style: inherit;
 }
 
+button.post-delete {
+    float: none;
+    margin: 0 auto;
+
+}
+
 /* Profile */
 .username {
     font-weight: 700;

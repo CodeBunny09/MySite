@@ -113,6 +113,22 @@ Silly | Dashboard
             </div>
             <div class="card-action">
                 <a class="waves-effect waves-light btn btn-small" href="{{post.get_url}}">View Post</a>
+                {% if request.user == post.user.user %}
+                <form method="POST" style="padding: 2% 0;" action="{% url 'blog:delete-post' author.slug %}">
+                    {% csrf_token %}
+                    <a class="waves-effect waves-light red btn modal-trigger" href="#delete_post">Delete Post</a>
+                    <div id="delete_post" class="modal">
+                        <div class="modal-content">
+                          <h4>Are you sure???</h4>
+                          <p>After deleting the post, all the views and scores will decrease from your account. Are you sure about deleting it?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <a class="modal-close waves-effect waves-red btn-flat">Shit! I clicked it by mistake</a>
+                          <button name="post_id" value="{{post.id}}" class="btn waves-effect waves-light red">Delete Post</button>
+                        </div>
+                      </div>
+                </form>
+                {% endif %}
                 <span class="right"> {% get_hit_count for post %} Views</span><br>
                 <span class="right"> 45654 Points</span>
             </div>
