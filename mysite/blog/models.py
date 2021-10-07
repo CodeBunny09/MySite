@@ -43,11 +43,25 @@ class Author(models.Model):
             "author_slug": self.slug
         })
 
+class AuthorMeta(models.Model):
+    user = models.OneToOneField(Author, on_delete=models.CASCADE)
+    followers = models.ManyToManyField(Author, related_name='followers', blank=True)
+    following = models.ManyToManyField(Author, related_name='following', blank=True)
+
+    @property
+    def get_followers(self):
+        return self.followers.all().count()
+
+    @property
+    def get_following(self):
+        return self.following.all().count()
+
+    def __str__(self):
+        return self.user.fullname
 
 class Catagory(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(max_length=400, unique=True, blank=True)
-
 
     class Meta:
         verbose_name_plural = "Catagories"
@@ -79,6 +93,7 @@ class Reply(models.Model):
     class Meta:
         verbose_name_plural = 'Replies'
     
+    @property
     def get_hahas(self):
         num_hahas = self.haha.all().count()
         return num_hahas
@@ -94,6 +109,7 @@ class Comment(models.Model):
     def __str__(self):
         return self.content[:50]
 
+    @property
     def get_hahas(self):
         num_hahas = self.haha.all().count()
         return num_hahas
@@ -128,6 +144,7 @@ class Post(models.Model):
             "slug": self.slug
         })
     
+    @property
     def get_score(self):
         upvotes = self.upvotes.all().count()
         downvotes = self.downvotes.all().count()

@@ -36,7 +36,7 @@ Silly | Home
                 <span class="right">{{post.points}} Points</span>
             </div>
             <div class="card-content card-footer">
-                Post By <a href="#">{{post.user.fullname | title}}</a> on <a href="#">{{post.date | date}}</a>
+                Post By <a href="{{post.user.get_url}}">{{post.user.fullname | title}}</a> on <a>{{post.date | date}}</a>
             </div>
         </div>
     </div>

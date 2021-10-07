@@ -38,6 +38,12 @@ Silly | Dashboard
     </div>
     <!-- Profile Details End -->
 </div>
+<!-- Network Actions -->
+{% if request.user == author.user %}
+<a href="{% url 'accounts:account-profile' %}" class="waves-effect waves-light btn">Edit Profile</a>
+{% else %}
+<button>Follow</button>
+{% endif %}
 <!-- Networks -->
 <div class="row">
     <a href="#posts">
@@ -49,13 +55,13 @@ Silly | Dashboard
     <a href="/network-stats">
         <div class="col center-align s4 black-text waves-effect">
         <h3>Followers</h3>
-        <h5>85</h5>
+        <h5>{{meta.get_followers}}</h5>
         </div>
     </a>
     <a href="/network-stats">
         <div class="col center-align s4 black-text waves-effect">
             <h3>Following</h3>
-            <h5>84</h5>
+            <h5>{{meta.get_following}}</h5>
         </div>
     </a>
 </div>

@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model, login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as lt
 from .forms import UpdateForm
-from blog.models import Post, Author
+from blog.models import Post, Author, AuthorMeta
 from django.contrib.auth import get_user
 
 
@@ -75,10 +75,12 @@ def profile(req, author_slug):
     context = {}
     user = req.user
     author =  Author.objects.get(slug = author_slug)
+    meta = AuthorMeta.objects.get(user = author)
     posts = Post.objects.filter(user=author)[::-1]
     context.update({
         'author': author,
         'posts': posts,
+        'meta': meta,
     })
     return render(req, 'profile-pub.html', context)
 
