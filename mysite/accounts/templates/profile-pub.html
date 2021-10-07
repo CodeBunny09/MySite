@@ -42,7 +42,12 @@ Silly | Dashboard
 {% if request.user == author.user %}
 <a href="{% url 'accounts:account-profile' %}" class="waves-effect waves-light btn">Edit Profile</a>
 {% else %}
-<button>Follow</button>
+<form method="POST" action="{% url 'accounts:follow-unfollow' author.slug  %}">
+{% csrf_token %}
+<button name="author_id" value="{{author.id}}" class="waves-effect waves-light btn">
+    Follow/Unfollow
+</button>
+</form>
 {% endif %}
 <!-- Networks -->
 <div class="row">
@@ -52,13 +57,13 @@ Silly | Dashboard
             <h5>{{author.num_posts}}</h5>
         </div>
     </a>
-    <a href="/network-stats">
+    <a href="{% url 'accounts:net-stats' author.slug %}">
         <div class="col center-align s4 black-text waves-effect">
         <h3>Followers</h3>
         <h5>{{meta.get_followers}}</h5>
         </div>
     </a>
-    <a href="/network-stats">
+    <a href="{% url 'accounts:net-stats' author.slug %}">
         <div class="col center-align s4 black-text waves-effect">
             <h3>Following</h3>
             <h5>{{meta.get_following}}</h5>

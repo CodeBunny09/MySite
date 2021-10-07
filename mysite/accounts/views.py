@@ -1,3 +1,4 @@
+from django.contrib import auth
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import get_user_model, login, authenticate
@@ -86,11 +87,41 @@ def profile(req, author_slug):
 
 @login_required
 def delete_profile(req):
-    # User = get_user_model()
     user = req.user
     user.delete()
-    # user = User.objects.get(id=req.user.id)
-    # author = Author.objects.get(user=user)
-    # author.delete()
-    # user.delete()
+
     return redirect("blog:blog-index")
+
+@login_required
+def follow_unfollow(req, slug):
+    if req.method == "POST":
+        # Current User
+        user = req.user
+        current_author = Author.objects.get(user = user)
+        current_author_meta = AuthorMeta.objects.get(user = current_author)
+        
+        # Viewed User
+        id = req.POST.get("author_id")
+        author = Author.objects.get(id = id)
+        author_meta = AuthorMeta.objects.get(user = author)
+        
+        # Actions
+        if current_author in [i for i in author_meta.followers.all()]:
+            print("User is a follower")
+            author_meta.followers.remove(current_author)
+            current_author_meta.following.remove(author)
+        else:
+            print("User is not a follower.")
+            author_meta.followers.add(current_author)
+            current_author_meta.following.add(author)
+        return redirect("accounts:profile", slug)
+
+@login_required
+def net_stats(req, slug):
+    user = req.user
+    author = Author.objects.get(user = user)
+    author_meta = AuthorMeta.objects.get(user = author)
+    print(user)
+    print([i for i in author_meta.followers.all()])
+    context = {'author_meta' : author_meta}
+    return render(req, "network-stats.html", context)
