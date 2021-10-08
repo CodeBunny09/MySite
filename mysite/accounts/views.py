@@ -107,21 +107,28 @@ def follow_unfollow(req, slug):
         
         # Actions
         if current_author in [i for i in author_meta.followers.all()]:
-            print("User is a follower")
+            print("Unfollowed")
             author_meta.followers.remove(current_author)
             current_author_meta.following.remove(author)
         else:
-            print("User is not a follower.")
+            print("Followed.")
             author_meta.followers.add(current_author)
             current_author_meta.following.add(author)
         return redirect("accounts:profile", slug)
 
 @login_required
 def net_stats(req, slug):
-    user = req.user
-    author = Author.objects.get(user = user)
+    # Current user
+    current_user = req.user
+    current_author = Author.objects.get(user = current_user)
+    current_author_meta = AuthorMeta.objects.get(user = current_author)
+
+    # Viewed user
+    author = Author.objects.get(slug = slug)
     author_meta = AuthorMeta.objects.get(user = author)
-    print(user)
     print([i for i in author_meta.followers.all()])
-    context = {'author_meta' : author_meta}
+    context = {
+        'author_meta' : author_meta,
+        'current_author_meta': current_author_meta
+        }
     return render(req, "network-stats.html", context)

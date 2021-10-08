@@ -28,69 +28,75 @@
     <div class="container">
         <ul class="tabs row">
             <li class="tab col s6"><a href="#followers">Followers</a></li>
-            <li class="tab col s6"><a href="#followings">Following</a></li>
+            <li class="tab col s6"><a href="#following">Following</a></li>
         </ul>
         <div class="row">
-        <div id="followers" class="container col s12">
-            <ul class="collection">
-                {% for follower in author_meta.followers.all %}
-                <li class="collection-item avatar">
-                    <img src="{{  follower.profile_pic.url }}" alt="{{ follower.fullname }}" class="circle">
-                    <span class="title">{{ follower.fullname | title }}</span>
-                    <a href="#" class="secondary-content waves-effect waves-light btn">Follow Back</a>
-                </li>
-                {% endfor %}
-                <li class="collection-item avatar">
-                    <img src="" alt="" class="circle">
-                    <span class="title">Elliot</span>
-                    <a href="#" class="secondary-content waves-effect waves-light btn">Follow Back</a>
-                </li>
-                <li class="collection-item avatar">
-                    <img src="" alt="" class="circle">
-                    <span class="title">Sheyla</span>
-                    <a href="#" class="secondary-content waves-effect waves-light btn">Follow Back</a>
-                </li>
-                <li class="collection-item avatar">
-                    <img src="" alt="" class="circle">
-                    <span class="title">Whiterose</span>
-                    <a href="#" class="secondary-content waves-effect waves-light btn">Follow Back</a>
-                </li>
-                <li class="collection-item avatar">
-                    <img src="" alt="" class="circle">
-                    <span class="title">Dom</span>
-                    <a href="#" class="secondary-content waves-effect waves-light btn">Follow Back</a>
-                </li>
-            </ul>
-        </div>
-        <div id="followings" class="container col s12">
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <img src="" alt="" class="circle">
-                    <span class="title">Phillip</span>
-                    <a href="#" class="secondary-content waves-effect waves-light btn">Unfollow</a>
-                </li>
-                <li class="collection-item avatar">
-                    <img src="" alt="" class="circle">
-                    <span class="title">Tyrell</span>
-                    <a href="#" class="secondary-content waves-effect waves-light btn">Unfollow</a>
-                </li>
-                <li class="collection-item avatar">
-                    <img src="" alt="" class="circle">
-                    <span class="title">Sheyla</span>
-                    <a href="#" class="secondary-content waves-effect waves-light btn">Unfollow</a>
-                </li>
-                <li class="collection-item avatar">
-                    <img src="" alt="" class="circle">
-                    <span class="title">Elliot</span>
-                    <a href="#" class="secondary-content waves-effect waves-light btn">Unfollow</a>
-                </li>
-                <li class="collection-item avatar">
-                    <img src="" alt="" class="circle">
-                    <span class="title">Rohit</span>
-                    <a href="#" class="secondary-content waves-effect waves-light btn">Unfollow</a>
-                </li>
-            </ul>
-        </div>
+            <!-- Followers -->
+            <div id="followers" class="container col s12">
+                <ul class="collection">
+                    {% for follower in author_meta.followers.all %}
+                    <li class="collection-item avatar">
+                        <img src="{{  follower.profile_pic.url }}" alt="{{ follower.fullname }}" class="circle"></img>
+                        <span class="title">{{ follower.fullname | title }}</span>
+                        {% if req.user == author_meta.user %}
+                            {% if follower in current_author_meta.follower.all %}
+                            <a href="{{follower.get_url}}" class="secondary-content">View Posts</a>
+                            <form method="POST" action="{% url 'accounts:follow-unfollow' following.slug  %}">
+                                {% csrf_token %}
+                                <button name="author_id" value="{{follower.id}}" class="waves-effect waves-light btn">
+                                    Unfollow
+                                </button>
+                            </form>
+                            {% else %}
+                            <a href="{{follower.get_url}}" class="secondary-content">View Posts</a>
+                            <form method="POST" action="{% url 'accounts:follow-unfollow' follower.slug  %}">
+                                {% csrf_token %}
+                                <button name="author_id" value="{{follower.id}}" class="waves-effect waves-light btn">
+                                    Follow Back
+                                </button>
+                            </form>
+                            {% endif %}
+                        {% else %}
+                        <a href="{{follower.get_url}}" class="secondary-content">View Posts</a>
+                        <form method="POST" action="{% url 'accounts:follow-unfollow' follower.slug  %}">
+                            {% csrf_token %}
+                            <button name="author_id" value="{{follower.id}}" class="waves-effect waves-light btn">
+                                Follow
+                            </button>
+                        </form>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- Following -->
+            <div id="following" class="container col s12">
+                <ul class="collection">
+                    {% for following in author_meta.following.all %}
+                    <li class="collection-item avatar">
+                        <img src="{{  following.profile_pic.url }}" alt="{{ followig.fullname }}" class="circle">
+                        <span class="title">{{ following.fullname | title }}</span>
+                        {% if following in current_author_meta.following.all %}
+                        <a href="{{following.get_url}}" class="secondary-content">View Posts</a>
+                        <form method="POST" action="{% url 'accounts:follow-unfollow' following.slug  %}">
+                            {% csrf_token %}
+                            <button name="author_id" value="{{following.id}}" class="waves-effect waves-light btn">
+                                Unfollow
+                            </button>
+                        </form>
+                        {% else %}
+                        <a href="{{following.get_url}}" class="secondary-content">View Posts</a>
+                        <form method="POST" action="{% url 'accounts:follow-unfollow' following.slug  %}">
+                            {% csrf_token %}
+                            <button name="author_id" value="{{following.id}}" class="waves-effect waves-light btn">
+                                Follow
+                            </button>
+                        </form>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 </body>
