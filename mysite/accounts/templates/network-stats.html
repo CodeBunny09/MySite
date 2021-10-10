@@ -1,103 +1,115 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!--JQuery-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    
-    <!--Material CSS CDNs-->
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!--JQuery-->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        
+        <!--Material CSS CDNs-->
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <!--Custom JS-->
-    <script type="text/javascript" src="{% static 'js/blog/index.js' %}"></script>
+        <!--Custom JS-->
+        <script type="text/javascript" src="{% static 'js/blog/index.js' %}"></script>
 
-    <!--Custom CSS-->
-    <link rel="stylesheet" href="{% static 'css/blogs/style.css' %}">
-    
-    <title>{% block title %}Network Stats{% endblock title %}</title>
-</head>
-<body>
-    <div class="container">
-        <ul class="tabs row">
-            <li class="tab col s6"><a href="#followers">Followers</a></li>
-            <li class="tab col s6"><a href="#following">Following</a></li>
-        </ul>
-        <div class="row">
-            <!-- Followers -->
-            <div id="followers" class="container col s12">
-                <ul class="collection">
-                    {% for follower in author_meta.followers.all %}
-                    <li class="collection-item avatar">
-                        <img src="{{  follower.profile_pic.url }}" alt="{{ follower.fullname }}" class="circle"></img>
-                        <span class="title">{{ follower.fullname | title }}</span>
-                        {% if req.user == author_meta.user %}
-                            {% if follower in current_author_meta.follower.all %}
-                            <a href="{{follower.get_url}}" class="secondary-content">View Posts</a>
+        <!--Custom CSS-->
+        <link rel="stylesheet" href="{% static 'css/blogs/style.css' %}">
+        
+        <title>Network Stats</title>
+    </head>
+    <body>
+        <div class="container">
+            <ul class="tabs row">
+                <li class="tab col s6"><a href="#followers">Followers</a></li>
+                <li class="tab col s6"><a href="#following">Following</a></li>
+            </ul>
+            <div class="row">
+                <!-- Followers -->
+                <div id="followers" class="container col s12">
+                    <ul class="collection">
+                        {% for follower in author_meta.followers.all %}
+                        <li class="collection-item avatar">
+                            <img src="{{  follower.profile_pic.url }}" alt="{{ follower.fullname }}" class="circle"></img>
+                            <span class="title">{{ follower.fullname | title }}</span>
+                            {% if current_author_meta.user == author_meta.user %}
+                                {% if follower in current_author_meta.following.all %}
+                                <a href="{{follower.get_url}}" class="secondary-content">View Posts</a>
+                                <form method="POST" action="{% url 'accounts:follow-unfollow' follower.slug  %}">
+                                    {% csrf_token %}
+                                    <button name="author_id" value="{{follower.id}}" class="waves-effect waves-light btn">
+                                        Unfollow
+                                    </button>
+                                </form>
+                                {% else %}
+                                <a href="{{follower.get_url}}" class="secondary-content">View Posts</a>
+                                <form method="POST" action="{% url 'accounts:follow-unfollow' follower.slug  %}">
+                                    {% csrf_token %}
+                                    <button name="author_id" value="{{follower.id}}" class="waves-effect waves-light btn">
+                                        Follow Back
+                                    </button>
+                                </form>
+                                {% endif %}
+                            {% else %}
+                                {% if follower in current_author_meta.following.all %}
+                                <a href="{{follower.get_url}}" class="secondary-content">View Posts</a>
+                                <form method="POST" action="{% url 'accounts:follow-unfollow' follower.slug  %}">
+                                    {% csrf_token %}
+                                    <button name="author_id" value="{{follower.id}}" class="waves-effect waves-light btn">
+                                        Unfollow
+                                    </button>
+                                </form>
+                                {% else %}
+                                <a href="{{follower.get_url}}" class="secondary-content">View Posts</a>
+                                <form method="POST" action="{% url 'accounts:follow-unfollow' follower.slug  %}">
+                                    {% csrf_token %}
+                                    <button name="author_id" value="{{follower.id}}" class="waves-effect waves-light btn">
+                                        Follow
+                                    </button>
+                                </form>
+                                {% endif %}
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- Following -->
+                <div id="following" class="container col s12">
+                    <ul class="collection">
+                        {% for following in author_meta.following.all %}
+                        <li class="collection-item avatar">
+                            <img src="{{  following.profile_pic.url }}" alt="{{ followig.fullname }}" class="circle">
+                            <span class="title">{{ following.fullname | title }}</span>
+                            {% if following in current_author_meta.following.all %}
+                            <a href="{{following.get_url}}" class="secondary-content">View Posts</a>
                             <form method="POST" action="{% url 'accounts:follow-unfollow' following.slug  %}">
                                 {% csrf_token %}
-                                <button name="author_id" value="{{follower.id}}" class="waves-effect waves-light btn">
+                                <button name="author_id" value="{{following.id}}" class="waves-effect waves-light btn">
                                     Unfollow
                                 </button>
                             </form>
                             {% else %}
-                            <a href="{{follower.get_url}}" class="secondary-content">View Posts</a>
-                            <form method="POST" action="{% url 'accounts:follow-unfollow' follower.slug  %}">
+                            <a href="{{following.get_url}}" class="secondary-content">View Posts</a>
+                            <form method="POST" action="{% url 'accounts:follow-unfollow' following.slug  %}">
                                 {% csrf_token %}
-                                <button name="author_id" value="{{follower.id}}" class="waves-effect waves-light btn">
-                                    Follow Back
+                                <button name="author_id" value="{{following.id}}" class="waves-effect waves-light btn">
+                                    Follow
                                 </button>
                             </form>
                             {% endif %}
-                        {% else %}
-                        <a href="{{follower.get_url}}" class="secondary-content">View Posts</a>
-                        <form method="POST" action="{% url 'accounts:follow-unfollow' follower.slug  %}">
-                            {% csrf_token %}
-                            <button name="author_id" value="{{follower.id}}" class="waves-effect waves-light btn">
-                                Follow
-                            </button>
-                        </form>
-                        {% endif %}
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <!-- Following -->
-            <div id="following" class="container col s12">
-                <ul class="collection">
-                    {% for following in author_meta.following.all %}
-                    <li class="collection-item avatar">
-                        <img src="{{  following.profile_pic.url }}" alt="{{ followig.fullname }}" class="circle">
-                        <span class="title">{{ following.fullname | title }}</span>
-                        {% if following in current_author_meta.following.all %}
-                        <a href="{{following.get_url}}" class="secondary-content">View Posts</a>
-                        <form method="POST" action="{% url 'accounts:follow-unfollow' following.slug  %}">
-                            {% csrf_token %}
-                            <button name="author_id" value="{{following.id}}" class="waves-effect waves-light btn">
-                                Unfollow
-                            </button>
-                        </form>
-                        {% else %}
-                        <a href="{{following.get_url}}" class="secondary-content">View Posts</a>
-                        <form method="POST" action="{% url 'accounts:follow-unfollow' following.slug  %}">
-                            {% csrf_token %}
-                            <button name="author_id" value="{{following.id}}" class="waves-effect waves-light btn">
-                                Follow
-                            </button>
-                        </form>
-                        {% endif %}
-                    </li>
-                    {% endfor %}
-                </ul>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+        <div class="container">
+        </div>
+    </body>
 </html>
