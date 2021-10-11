@@ -157,3 +157,8 @@
 <u>Day:38</u>
 <p>Debugged the code. My brain hurts now!!</p>
 <p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
+
+
+<u>Day:39</u>
+<p>I spent most of the time today doing nothing but staring at the code! It's so frustrating! 🙂</p>
+<p>In this challenge (<a href="https://www.100daysofcode.com/">100DaysOfCode</a>), I'm gonnna make my own portfolio and forum weebsite. Tune in with me for daily updates!!!!</p>
